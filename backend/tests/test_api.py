@@ -90,6 +90,60 @@ def test_start_session_unique_ids(client):
     assert data1["session_id"] != data2["session_id"]
 
 
+def test_start_session_custom_count(client):
+    """Test starting a session with a custom verb count"""
+    response = client.get("/api/session/start?count=5")
+
+    assert response.status_code == 200
+    data = response.json()
+
+    assert data["total_verbs"] == 5
+    assert len(data["verbs"]) == 5
+
+
+def test_start_session_count_min(client):
+    """Test starting a session with minimum count (1)"""
+    response = client.get("/api/session/start?count=1")
+
+    assert response.status_code == 200
+    data = response.json()
+
+    assert data["total_verbs"] == 1
+    assert len(data["verbs"]) == 1
+
+
+def test_start_session_count_max(client):
+    """Test starting a session with maximum count (20)"""
+    response = client.get("/api/session/start?count=20")
+
+    assert response.status_code == 200
+    data = response.json()
+
+    assert data["total_verbs"] == 20
+    assert len(data["verbs"]) == 20
+
+
+def test_start_session_count_below_min(client):
+    """Test starting a session with count below minimum returns 422"""
+    response = client.get("/api/session/start?count=0")
+
+    assert response.status_code == 422
+
+
+def test_start_session_count_above_max(client):
+    """Test starting a session with count above maximum returns 422"""
+    response = client.get("/api/session/start?count=21")
+
+    assert response.status_code == 422
+
+
+def test_start_session_count_negative(client):
+    """Test starting a session with negative count returns 422"""
+    response = client.get("/api/session/start?count=-5")
+
+    assert response.status_code == 422
+
+
 def test_submit_session_all_correct(client):
     """Test submitting answers with all correct"""
     # First, start a session

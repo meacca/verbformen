@@ -1,7 +1,7 @@
 """FastAPI application for German verb learning webapp"""
 import uuid
 from pathlib import Path
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -45,18 +45,21 @@ async def health_check():
 
 
 @app.get("/api/session/start", response_model=SessionStart)
-async def start_session():
+async def start_session(count: int = Query(default=10, ge=1, le=20)):
     """
     Start a new learning session
 
-    Returns 10 randomly selected verbs in infinitive form
+    Args:
+        count: Number of verbs to practice (1-20, default 10)
+
+    Returns randomly selected verbs in infinitive form
     """
     try:
         # Generate unique session ID
         session_id = str(uuid.uuid4())
 
-        # Get 10 random verbs
-        infinitives = verb_service.get_random_verbs(count=10)
+        # Get random verbs
+        infinitives = verb_service.get_random_verbs(count=count)
 
         # Create verb info objects with indices
         verbs = [

@@ -24,6 +24,9 @@ const loadingIndicator = document.getElementById('loading');
 const errorMessage = document.getElementById('error-message');
 const errorText = document.getElementById('error-text');
 const errorClose = document.getElementById('error-close');
+const verbCountSlider = document.getElementById('verb-count');
+const verbCountValue = document.getElementById('verb-count-value');
+const verbCountDisplay = document.getElementById('verb-count-display');
 
 /**
  * Initialize the application
@@ -34,9 +37,19 @@ function init() {
     restartBtn.addEventListener('click', handleRestart);
     quizForm.addEventListener('submit', handleSubmitAnswers);
     errorClose.addEventListener('click', hideError);
+    verbCountSlider.addEventListener('input', handleVerbCountChange);
 
     // Show start screen
     showScreen('start');
+}
+
+/**
+ * Handle verb count slider change
+ */
+function handleVerbCountChange() {
+    const count = verbCountSlider.value;
+    verbCountValue.textContent = count;
+    verbCountDisplay.textContent = count;
 }
 
 /**
@@ -71,7 +84,8 @@ async function handleStartSession() {
         startBtn.disabled = true;
         startBtn.textContent = 'Loading...';
 
-        const sessionData = await startSession();
+        const count = parseInt(verbCountSlider.value, 10);
+        const sessionData = await startSession(count);
 
         appState.sessionId = sessionData.session_id;
         appState.currentVerbs = sessionData.verbs;

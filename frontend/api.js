@@ -6,11 +6,12 @@ const API_BASE_URL = '/api';
 
 /**
  * Start a new learning session
+ * @param {number} count - Number of verbs to practice (1-20, default 10)
  * @returns {Promise<Object>} Session data with verbs
  */
-export async function startSession() {
+export async function startSession(count = 10) {
     try {
-        const response = await fetch(`${API_BASE_URL}/session/start`);
+        const response = await fetch(`${API_BASE_URL}/session/start?count=${count}`);
 
         if (!response.ok) {
             const error = await response.json();
