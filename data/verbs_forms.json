@@ -1,0 +1,102 @@
+{
+    "sein": {
+        "Präsens": "ist",
+        "Präteritum": "war",
+        "Perfekt": "ist gewesen"
+    },
+    "haben": {
+        "Präsens": "hat",
+        "Präteritum": "hatte",
+        "Perfekt": "hat gehabt"
+    },
+    "werden": {
+        "Präsens": "wird",
+        "Präteritum": "wurde",
+        "Perfekt": "ist geworden"
+    },
+    "gehen": {
+        "Präsens": "geht",
+        "Präteritum": "ging",
+        "Perfekt": "ist gegangen"
+    },
+    "kommen": {
+        "Präsens": "kommt",
+        "Präteritum": "kam",
+        "Perfekt": "ist gekommen"
+    },
+    "machen": {
+        "Präsens": "macht",
+        "Präteritum": "machte",
+        "Perfekt": "hat gemacht"
+    },
+    "sagen": {
+        "Präsens": "sagt",
+        "Präteritum": "sagte",
+        "Perfekt": "hat gesagt"
+    },
+    "geben": {
+        "Präsens": "gibt",
+        "Präteritum": "gab",
+        "Perfekt": "hat gegeben"
+    },
+    "können": {
+        "Präsens": "kann",
+        "Präteritum": "konnte",
+        "Perfekt": "hat gekonnt"
+    },
+    "müssen": {
+        "Präsens": "muss",
+        "Präteritum": "musste",
+        "Perfekt": "hat gemusst"
+    },
+    "wissen": {
+        "Präsens": "weiß",
+        "Präteritum": "wusste",
+        "Perfekt": "hat gewusst"
+    },
+    "sehen": {
+        "Präsens": "sieht",
+        "Präteritum": "sah",
+        "Perfekt": "hat gesehen"
+    },
+    "nehmen": {
+        "Präsens": "nimmt",
+        "Präteritum": "nahm",
+        "Perfekt": "hat genommen"
+    },
+    "finden": {
+        "Präsens": "findet",
+        "Präteritum": "fand",
+        "Perfekt": "hat gefunden"
+    },
+    "aufstehen": {
+        "Präsens": "steht auf",
+        "Präteritum": "stand auf",
+        "Perfekt": "ist aufgestanden"
+    },
+    "fahren": {
+        "Präsens": "fährt",
+        "Präteritum": "fuhr",
+        "Perfekt": "ist gefahren"
+    },
+    "schreiben": {
+        "Präsens": "schreibt",
+        "Präteritum": "schrieb",
+        "Perfekt": "hat geschrieben"
+    },
+    "lesen": {
+        "Präsens": "liest",
+        "Präteritum": "las",
+        "Perfekt": "hat gelesen"
+    },
+    "essen": {
+        "Präsens": "isst",
+        "Präteritum": "aß",
+        "Perfekt": "hat gegessen"
+    },
+    "trinken": {
+        "Präsens": "trinkt",
+        "Präteritum": "trank",
+        "Perfekt": "hat getrunken"
+    }
+}

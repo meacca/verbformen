@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Verb Learning - Verbformen</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇩🇪 German Verb Learning</h1>
+            <p class="subtitle">Practice Präsens, Präteritum, and Perfekt forms</p>
+        </header>
+
+        <!-- Start Screen -->
+        <section id="start-screen" class="screen active">
+            <div class="welcome-box">
+                <h2>Welcome!</h2>
+                <p>Test your knowledge of German verb conjugations.</p>
+                <p>You'll be given <strong>10 random verbs</strong> in their infinitive form.</p>
+                <p>For each verb, provide:</p>
+                <ul>
+                    <li><strong>Präsens</strong> (3rd person: er/sie/es)</li>
+                    <li><strong>Präteritum</strong> (3rd person: er/sie/es)</li>
+                    <li><strong>Perfekt</strong></li>
+                </ul>
+                <button id="start-btn" class="btn btn-primary">Begin Session</button>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <h2>Fill in the verb forms</h2>
+                <p class="hint">Enter the 3rd person forms (er/sie/es) for Präsens and Präteritum</p>
+            </div>
+
+            <form id="quiz-form">
+                <div id="verbs-container" class="verbs-container">
+                    <!-- Verb inputs will be dynamically generated here -->
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Answers</button>
+                </div>
+            </form>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Grading your answers...</p>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="results-header">
+                <h2>Your Results</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score-percentage" class="score-number">0%</span>
+                    </div>
+                    <p id="score-text" class="score-text"></p>
+                </div>
+            </div>
+
+            <div class="results-table-container">
+                <table id="results-table" class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Verb</th>
+                            <th>Form</th>
+                            <th>Your Answer</th>
+                            <th>Correct Answer</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-tbody">
+                        <!-- Results will be dynamically generated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-actions">
+                <button id="restart-btn" class="btn btn-primary">Start New Session</button>
+            </div>
+        </section>
+
+        <!-- Error Display -->
+        <div id="error-message" class="error-message hidden">
+            <p id="error-text"></p>
+            <button id="error-close" class="btn btn-small">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Practice makes perfect! 📚</p>
+    </footer>
+
+    <script type="module" src="/static/app.js"></script>
+</body>
+</html>
