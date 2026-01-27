@@ -17,6 +17,7 @@ This is a German verb learning webapp built with:
 - **Frontend**: Vanilla HTML/CSS/JavaScript
 - **Package Manager**: uv
 - **Testing**: pytest
+- **Linting/Formatting**: ruff (via pre-commit)
 
 ## Development Setup
 
@@ -62,6 +63,29 @@ uv run pytest backend/tests/test_services.py -v
 uv run pytest backend/tests/ --cov=backend --cov-report=html
 ```
 
+### Linting and Formatting (Pre-commit)
+
+This project uses **ruff** for linting and formatting, enforced via **pre-commit** hooks.
+
+```bash
+# Install pre-commit hooks (required once after cloning)
+uv run pre-commit install
+
+# Run linting/formatting manually on all files
+uv run pre-commit run --all-files
+
+# Run ruff directly (without pre-commit)
+uv run ruff check backend/       # Lint only
+uv run ruff check backend/ --fix # Lint and auto-fix
+uv run ruff format backend/      # Format code
+```
+
+**Pre-commit hooks run automatically** on every `git commit`:
+- `ruff` - Lints code and auto-fixes issues
+- `ruff-format` - Formats code consistently
+
+If a hook fails, the commit is blocked. Fix the issues and try again.
+
 ## Project Structure
 
 ```
@@ -83,6 +107,7 @@ uv run pytest backend/tests/ --cov=backend --cov-report=html
 │   ├── app.js                    # Application logic
 │   └── api.js                    # API client
 ├── .venv/                        # Virtual environment (git ignored)
+├── .pre-commit-config.yaml       # Pre-commit hooks configuration
 ├── pyproject.toml                # Project metadata and dependencies
 ├── uv.lock                       # Locked dependencies (committed to git)
 ├── README.md                     # User documentation
@@ -203,6 +228,8 @@ Dependencies are managed in `pyproject.toml` and locked in `uv.lock`.
 ### Development Dependencies
 - `pytest` - Testing framework
 - `httpx` - HTTP client for testing
+- `ruff` - Fast Python linter and formatter
+- `pre-commit` - Git hooks framework
 
 The `uv.lock` file ensures reproducible builds and should be committed to git.
 
@@ -358,10 +385,11 @@ When working on this project:
 1. **Always use `uv`** for Python package management
 2. Read existing code before making changes
 3. Run tests after modifications
-4. Keep it simple - avoid over-engineering
-5. The app is intentionally stateless
-6. Frontend is vanilla JS - no build step needed
-7. Data file can be edited directly (no migration needed)
+4. **Run `uv run ruff check backend/ --fix && uv run ruff format backend/`** before committing
+5. Keep it simple - avoid over-engineering
+6. The app is intentionally stateless
+7. Frontend is vanilla JS - no build step needed
+8. Data file can be edited directly (no migration needed)
 
 ## Contact & Feedback
 

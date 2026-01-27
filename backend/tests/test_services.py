@@ -1,7 +1,9 @@
 """Unit tests for VerbService"""
+
 import json
+
 import pytest
-from pathlib import Path
+
 from backend.services import VerbService
 
 
@@ -9,35 +11,19 @@ from backend.services import VerbService
 def sample_verbs_file(tmp_path):
     """Create a temporary verbs JSON file for testing"""
     verbs_data = {
-        "gehen": {
-            "Präsens": "geht",
-            "Präteritum": "ging",
-            "Perfekt": "ist gegangen"
-        },
+        "gehen": {"Präsens": "geht", "Präteritum": "ging", "Perfekt": "ist gegangen"},
         "machen": {
             "Präsens": "macht",
             "Präteritum": "machte",
-            "Perfekt": "hat gemacht"
+            "Perfekt": "hat gemacht",
         },
-        "sein": {
-            "Präsens": "ist",
-            "Präteritum": "war",
-            "Perfekt": "ist gewesen"
-        },
-        "haben": {
-            "Präsens": "hat",
-            "Präteritum": "hatte",
-            "Perfekt": "hat gehabt"
-        },
-        "werden": {
-            "Präsens": "wird",
-            "Präteritum": "wurde",
-            "Perfekt": "ist geworden"
-        }
+        "sein": {"Präsens": "ist", "Präteritum": "war", "Perfekt": "ist gewesen"},
+        "haben": {"Präsens": "hat", "Präteritum": "hatte", "Perfekt": "hat gehabt"},
+        "werden": {"Präsens": "wird", "Präteritum": "wurde", "Perfekt": "ist geworden"},
     }
 
     file_path = tmp_path / "verbs.json"
-    with open(file_path, 'w', encoding='utf-8') as f:
+    with open(file_path, "w", encoding="utf-8") as f:
         json.dump(verbs_data, f, ensure_ascii=False)
 
     return file_path
@@ -99,12 +85,7 @@ def test_get_random_verbs_too_many(verb_service):
 
 def test_check_answer_all_correct(verb_service):
     """Test checking answers when all are correct"""
-    result = verb_service.check_answer(
-        "gehen",
-        "geht",
-        "ging",
-        "ist gegangen"
-    )
+    result = verb_service.check_answer("gehen", "geht", "ging", "ist gegangen")
 
     assert result["praesens"] is True
     assert result["praeteritum"] is True
@@ -113,12 +94,7 @@ def test_check_answer_all_correct(verb_service):
 
 def test_check_answer_all_incorrect(verb_service):
     """Test checking answers when all are incorrect"""
-    result = verb_service.check_answer(
-        "gehen",
-        "wrong1",
-        "wrong2",
-        "wrong3"
-    )
+    result = verb_service.check_answer("gehen", "wrong1", "wrong2", "wrong3")
 
     assert result["praesens"] is False
     assert result["praeteritum"] is False
@@ -131,7 +107,7 @@ def test_check_answer_mixed(verb_service):
         "machen",
         "macht",  # correct
         "wrong",  # incorrect
-        "hat gemacht"  # correct
+        "hat gemacht",  # correct
     )
 
     assert result["praesens"] is True
@@ -141,12 +117,7 @@ def test_check_answer_mixed(verb_service):
 
 def test_check_answer_strips_whitespace(verb_service):
     """Test that whitespace is stripped from user answers"""
-    result = verb_service.check_answer(
-        "gehen",
-        "  geht  ",
-        " ging ",
-        "ist gegangen   "
-    )
+    result = verb_service.check_answer("gehen", "  geht  ", " ging ", "ist gegangen   ")
 
     assert result["praesens"] is True
     assert result["praeteritum"] is True
@@ -159,7 +130,7 @@ def test_check_answer_case_sensitive(verb_service):
         "gehen",
         "Geht",  # Wrong case
         "ging",
-        "ist gegangen"
+        "ist gegangen",
     )
 
     assert result["praesens"] is False
@@ -179,14 +150,14 @@ def test_grade_session_all_correct(verb_service):
             "infinitive": "gehen",
             "praesens": "geht",
             "praeteritum": "ging",
-            "perfekt": "ist gegangen"
+            "perfekt": "ist gegangen",
         },
         {
             "infinitive": "machen",
             "praesens": "macht",
             "praeteritum": "machte",
-            "perfekt": "hat gemacht"
-        }
+            "perfekt": "hat gemacht",
+        },
     ]
 
     result = verb_service.grade_session(answers)
@@ -206,14 +177,14 @@ def test_grade_session_mixed(verb_service):
             "infinitive": "gehen",
             "praesens": "geht",  # correct
             "praeteritum": "wrong",  # incorrect
-            "perfekt": "ist gegangen"  # correct
+            "perfekt": "ist gegangen",  # correct
         },
         {
             "infinitive": "machen",
             "praesens": "wrong",  # incorrect
             "praeteritum": "machte",  # correct
-            "perfekt": "wrong"  # incorrect
-        }
+            "perfekt": "wrong",  # incorrect
+        },
     ]
 
     result = verb_service.grade_session(answers)
@@ -233,7 +204,7 @@ def test_grade_session_includes_correct_answers(verb_service):
             "infinitive": "sein",
             "praesens": "wrong",
             "praeteritum": "wrong",
-            "perfekt": "wrong"
+            "perfekt": "wrong",
         }
     ]
 

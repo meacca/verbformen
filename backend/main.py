@@ -1,26 +1,37 @@
 """FastAPI application for German verb learning webapp"""
+
 import uuid
 from pathlib import Path
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
-from backend.models import SessionStart, SubmitRequest, SessionResult, VerbInfo, VerbResult
+from backend.models import (
+    SessionResult,
+    SessionStart,
+    SubmitRequest,
+    VerbInfo,
+    VerbResult,
+)
 from backend.services import VerbService
-
 
 # Initialize FastAPI app
 app = FastAPI(
     title="German Verb Learning API",
     description="API for learning German verb forms",
-    version="1.0.0"
+    version="1.0.0",
 )
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8000", "http://localhost:3000", "http://127.0.0.1:8000"],
+    allow_origins=[
+        "http://localhost:8000",
+        "http://localhost:3000",
+        "http://127.0.0.1:8000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -36,12 +47,11 @@ async def health_check():
     """Health check endpoint"""
     try:
         verbs = verb_service.load_verbs()
-        return {
-            "status": "healthy",
-            "verbs_loaded": len(verbs)
-        }
+        return {"status": "healthy", "verbs_loaded": len(verbs)}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Service unhealthy: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Service unhealthy: {str(e)}"
+        ) from e
 
 
 @app.get("/api/session/start", response_model=SessionStart)
@@ -67,16 +77,14 @@ async def start_session(count: int = Query(default=10, ge=1, le=20)):
             for idx, infinitive in enumerate(infinitives)
         ]
 
-        return SessionStart(
-            session_id=session_id,
-            verbs=verbs,
-            total_verbs=len(verbs)
-        )
+        return SessionStart(session_id=session_id, verbs=verbs, total_verbs=len(verbs))
 
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e)) from e
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to start session: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to start session: {str(e)}"
+        ) from e
 
 
 @app.post("/api/session/submit", response_model=SessionResult)
@@ -97,7 +105,7 @@ async def submit_session(request: SubmitRequest):
                 "infinitive": answer.infinitive,
                 "praesens": answer.praesens,
                 "praeteritum": answer.praeteritum,
-                "perfekt": answer.perfekt
+                "perfekt": answer.perfekt,
             }
             for answer in request.answers
         ]
@@ -112,7 +120,7 @@ async def submit_session(request: SubmitRequest):
                 correct=result["correct"],
                 user_answers=result["user_answers"],
                 correct_answers=result["correct_answers"],
-                all_correct=result["all_correct"]
+                all_correct=result["all_correct"],
             )
             for result in grading_result["results"]
         ]
@@ -123,13 +131,15 @@ async def submit_session(request: SubmitRequest):
             total_forms=grading_result["total_forms"],
             correct_count=grading_result["correct_count"],
             score_percentage=grading_result["score_percentage"],
-            results=verb_results
+            results=verb_results,
         )
 
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e)) from e
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to grade session: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to grade session: {str(e)}"
+        ) from e
 
 
 # Mount static files (frontend)

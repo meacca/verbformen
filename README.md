@@ -95,25 +95,27 @@ The application includes 20 common German verbs:
 - **Frontend**: Vanilla HTML, CSS, JavaScript
 - **Package Manager**: uv
 - **Testing**: pytest
+- **Linting/Formatting**: ruff (via pre-commit)
 
 ## Project Structure
 
 ```
 verbformen/
-├── backend/              # Python backend
-│   ├── main.py          # FastAPI application
-│   ├── models.py        # Pydantic models
-│   ├── services.py      # Business logic
-│   └── tests/           # Test suite
-├── frontend/            # Static frontend files
-│   ├── index.html      # Main page
-│   ├── styles.css      # Styling
-│   ├── app.js          # Application logic
-│   └── api.js          # API client
-├── data/               # Verb database
+├── backend/                  # Python backend
+│   ├── main.py              # FastAPI application
+│   ├── models.py            # Pydantic models
+│   ├── services.py          # Business logic
+│   └── tests/               # Test suite
+├── frontend/                # Static frontend files
+│   ├── index.html          # Main page
+│   ├── styles.css          # Styling
+│   ├── app.js              # Application logic
+│   └── api.js              # API client
+├── data/                    # Verb database
 │   └── verbs_forms.json
-├── pyproject.toml      # Project metadata and dependencies
-└── uv.lock            # Locked dependencies for reproducibility
+├── .pre-commit-config.yaml  # Pre-commit hooks configuration
+├── pyproject.toml           # Project metadata and dependencies
+└── uv.lock                  # Locked dependencies for reproducibility
 ```
 
 ## API Endpoints
@@ -149,6 +151,30 @@ uv run pytest backend/tests/test_api.py -v
 ```
 
 All 29 tests should pass.
+
+## Linting and Formatting
+
+This project uses [ruff](https://github.com/astral-sh/ruff) for linting and formatting, enforced via pre-commit hooks.
+
+### Setup (required once after cloning)
+
+```bash
+uv run pre-commit install
+```
+
+### Running Manually
+
+```bash
+# Run all pre-commit hooks
+uv run pre-commit run --all-files
+
+# Or run ruff directly
+uv run ruff check backend/       # Lint
+uv run ruff check backend/ --fix # Lint and auto-fix
+uv run ruff format backend/      # Format
+```
+
+Pre-commit hooks run automatically on every `git commit`. If a hook fails, fix the issues and commit again.
 
 ## Adding More Verbs
 
@@ -191,9 +217,11 @@ Works on all modern browsers:
 To contribute to this project:
 
 1. Read [CLAUDE.md](CLAUDE.md) for development guidelines
-2. Make your changes
-3. Run the test suite to ensure nothing breaks
-4. Submit your changes
+2. Run `uv run pre-commit install` to set up the linting hooks
+3. Make your changes
+4. Run the test suite to ensure nothing breaks
+5. Commit your changes (pre-commit hooks will lint/format automatically)
+6. Submit your changes
 
 ## License
 

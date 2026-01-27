@@ -1,8 +1,8 @@
 """Business logic for verb learning service"""
+
 import json
 import random
 from pathlib import Path
-from typing import Dict, List, Optional
 
 
 class VerbService:
@@ -16,9 +16,9 @@ class VerbService:
             data_path: Path to the JSON file containing verb data
         """
         self.data_path = Path(data_path)
-        self._verbs: Optional[Dict[str, Dict[str, str]]] = None
+        self._verbs: dict[str, dict[str, str]] | None = None
 
-    def load_verbs(self) -> Dict[str, Dict[str, str]]:
+    def load_verbs(self) -> dict[str, dict[str, str]]:
         """
         Load verbs from JSON file (cached in memory)
 
@@ -33,12 +33,12 @@ class VerbService:
             if not self.data_path.exists():
                 raise FileNotFoundError(f"Verb data file not found: {self.data_path}")
 
-            with open(self.data_path, 'r', encoding='utf-8') as f:
+            with open(self.data_path, encoding="utf-8") as f:
                 self._verbs = json.load(f)
 
         return self._verbs
 
-    def get_random_verbs(self, count: int = 10) -> List[str]:
+    def get_random_verbs(self, count: int = 10) -> list[str]:
         """
         Get a random selection of verb infinitives
 
@@ -67,8 +67,8 @@ class VerbService:
         infinitive: str,
         user_praesens: str,
         user_praeteritum: str,
-        user_perfekt: str
-    ) -> Dict[str, bool]:
+        user_perfekt: str,
+    ) -> dict[str, bool]:
         """
         Check if user's answers match the correct forms
 
@@ -95,13 +95,10 @@ class VerbService:
         return {
             "praesens": user_praesens.strip() == correct_forms["Präsens"],
             "praeteritum": user_praeteritum.strip() == correct_forms["Präteritum"],
-            "perfekt": user_perfekt.strip() == correct_forms["Perfekt"]
+            "perfekt": user_perfekt.strip() == correct_forms["Perfekt"],
         }
 
-    def grade_session(
-        self,
-        answers: List[Dict[str, str]]
-    ) -> Dict:
+    def grade_session(self, answers: list[dict[str, str]]) -> dict:
         """
         Grade all answers in a session
 
@@ -136,10 +133,7 @@ class VerbService:
 
             # Check each form
             correctness = self.check_answer(
-                infinitive,
-                answer["praesens"],
-                answer["praeteritum"],
-                answer["perfekt"]
+                infinitive, answer["praesens"], answer["praeteritum"], answer["perfekt"]
             )
 
             # Count correct answers
@@ -149,21 +143,23 @@ class VerbService:
             # Get correct forms for comparison
             correct_forms = verbs[infinitive]
 
-            results.append({
-                "infinitive": infinitive,
-                "correct": correctness,
-                "user_answers": {
-                    "praesens": answer["praesens"],
-                    "praeteritum": answer["praeteritum"],
-                    "perfekt": answer["perfekt"]
-                },
-                "correct_answers": {
-                    "praesens": correct_forms["Präsens"],
-                    "praeteritum": correct_forms["Präteritum"],
-                    "perfekt": correct_forms["Perfekt"]
-                },
-                "all_correct": all(correctness.values())
-            })
+            results.append(
+                {
+                    "infinitive": infinitive,
+                    "correct": correctness,
+                    "user_answers": {
+                        "praesens": answer["praesens"],
+                        "praeteritum": answer["praeteritum"],
+                        "perfekt": answer["perfekt"],
+                    },
+                    "correct_answers": {
+                        "praesens": correct_forms["Präsens"],
+                        "praeteritum": correct_forms["Präteritum"],
+                        "perfekt": correct_forms["Perfekt"],
+                    },
+                    "all_correct": all(correctness.values()),
+                }
+            )
 
         score_percentage = (total_correct / total_forms * 100) if total_forms > 0 else 0
 
@@ -172,5 +168,5 @@ class VerbService:
             "total_forms": total_forms,
             "correct_count": total_correct,
             "score_percentage": round(score_percentage, 1),
-            "results": results
+            "results": results,
         }
