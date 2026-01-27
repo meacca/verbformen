@@ -95,7 +95,7 @@ uv run pytest backend/tests/ --cov=backend --cov-report=html
 
 **Endpoints:**
 - `GET /api/health` - Health check
-- `GET /api/session/start` - Start new session, get 10 random verbs
+- `GET /api/session/start?count=N` - Start new session, get N random verbs (1-20, default 10)
 - `POST /api/session/submit` - Submit answers, get graded results
 - `GET /` - Serve frontend HTML
 
@@ -115,8 +115,8 @@ uv run pytest backend/tests/ --cov=backend --cov-report=html
 ### Frontend (Vanilla JS)
 
 **Three main screens:**
-1. **Start screen**: Welcome message, "Begin Session" button
-2. **Quiz screen**: Form with 10 verbs × 3 input fields
+1. **Start screen**: Welcome message, verb count slider (1-20), "Begin Session" button
+2. **Quiz screen**: Form with N verbs × 3 input fields (based on selected count)
 3. **Results screen**: Score display + detailed table
 
 **State management:**
@@ -153,7 +153,7 @@ Example:
 
 ### Test Coverage
 
-**Backend tests: 23 tests**
+**Backend tests: 29 tests**
 
 Unit tests (`test_services.py`):
 - Verb loading and caching
@@ -163,7 +163,8 @@ Unit tests (`test_services.py`):
 
 Integration tests (`test_api.py`):
 - Health check endpoint
-- Session start (random verbs, unique IDs)
+- Session start (random verbs, unique IDs, configurable count 1-20)
+- Count parameter validation (min, max, invalid values)
 - Answer submission (correct, incorrect, mixed)
 - Error handling (empty answers, invalid verbs)
 

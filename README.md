@@ -4,7 +4,8 @@ A simple, stateless web application for practicing German verb conjugations. Tes
 
 ## Features
 
-- Random selection of 10 verbs from a database of 20 common German verbs
+- Choose how many verbs to practice (1-20) with an intuitive slider
+- Random selection from a database of 20 common German verbs
 - Practice 3rd person forms: Präsens (er/sie/es), Präteritum (er/sie/es), and Perfekt
 - Instant feedback with detailed results
 - Color-coded scoring system
@@ -51,14 +52,15 @@ http://localhost:8000
 
 ## How to Use
 
-1. **Start a Session**: Click the "Begin Session" button on the welcome screen
-2. **Fill in Forms**: Enter the conjugated forms for each of the 10 randomly selected verbs
+1. **Choose Verb Count**: Use the slider to select how many verbs you want to practice (1-20)
+2. **Start a Session**: Click the "Begin Session" button on the welcome screen
+3. **Fill in Forms**: Enter the conjugated forms for each randomly selected verb
    - Präsens (3rd person: er/sie/es)
    - Präteritum (3rd person: er/sie/es)
    - Perfekt
-3. **Submit**: Click "Submit Answers" to see your results
-4. **Review**: Check your score and see which answers were correct or incorrect
-5. **Practice Again**: Start a new session to practice with different verbs
+4. **Submit**: Click "Submit Answers" to see your results
+5. **Review**: Check your score and see which answers were correct or incorrect
+6. **Practice Again**: Start a new session to practice with different verbs
 
 ## Available Verbs
 
@@ -118,13 +120,13 @@ verbformen/
 
 - `GET /` - Serve the frontend application
 - `GET /api/health` - Health check endpoint
-- `GET /api/session/start` - Start a new learning session (returns 10 random verbs)
+- `GET /api/session/start?count=N` - Start a new learning session (count: 1-20, default 10)
 - `POST /api/session/submit` - Submit answers and receive graded results
 
 ## Scoring System
 
 - Each verb has 3 forms to fill in
-- Total of 30 forms per session (10 verbs × 3 forms)
+- Total forms per session = selected verb count × 3 forms
 - Exact string matching (case-sensitive)
 - Whitespace is automatically trimmed
 - Results are color-coded:
@@ -146,7 +148,7 @@ uv run pytest backend/tests/test_services.py -v
 uv run pytest backend/tests/test_api.py -v
 ```
 
-All 23 tests should pass.
+All 29 tests should pass.
 
 ## Adding More Verbs
 
