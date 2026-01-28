@@ -107,7 +107,9 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 │   ├── app.js                    # Application logic
 │   └── api.js                    # API client
 ├── .venv/                        # Virtual environment (git ignored)
+├── .dockerignore                 # Docker build exclusions
 ├── .pre-commit-config.yaml       # Pre-commit hooks configuration
+├── Dockerfile                    # Container build instructions
 ├── pyproject.toml                # Project metadata and dependencies
 ├── uv.lock                       # Locked dependencies (committed to git)
 ├── README.md                     # User documentation
@@ -120,7 +122,7 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 
 **Endpoints:**
 - `GET /api/health` - Health check
-- `GET /api/session/start` - Start new session, get 10 random verbs
+- `GET /api/session/start?count=N` - Start new session, get N random verbs (1-20, default 10)
 - `POST /api/session/submit` - Submit answers, get graded results
 - `GET /` - Serve frontend HTML
 
@@ -140,8 +142,8 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 ### Frontend (Vanilla JS)
 
 **Three main screens:**
-1. **Start screen**: Welcome message, "Begin Session" button
-2. **Quiz screen**: Form with 10 verbs × 3 input fields
+1. **Start screen**: Welcome message, verb count slider (1-20), "Begin Session" button
+2. **Quiz screen**: Form with N verbs × 3 input fields (based on selected count)
 3. **Results screen**: Score display + detailed table
 
 **State management:**
@@ -178,7 +180,7 @@ Example:
 
 ### Test Coverage
 
-**Backend tests: 23 tests**
+**Backend tests: 29 tests**
 
 Unit tests (`test_services.py`):
 - Verb loading and caching
@@ -188,7 +190,8 @@ Unit tests (`test_services.py`):
 
 Integration tests (`test_api.py`):
 - Health check endpoint
-- Session start (random verbs, unique IDs)
+- Session start (random verbs, unique IDs, configurable count 1-20)
+- Count parameter validation (min, max, invalid values)
 - Answer submission (correct, incorrect, mixed)
 - Error handling (empty answers, invalid verbs)
 
@@ -285,6 +288,41 @@ uv sync
 - CORS enabled for localhost development
 - Exact string matching prevents injection attacks
 
+## Docker
+
+### Building and Running
+
+```bash
+# Build the image
+docker build -t verbformen .
+
+# Run the container
+docker run -p 8000:8000 verbformen
+
+# Run in detached mode with a name
+docker run -d -p 8000:8000 --name verbformen-app verbformen
+
+# View logs
+docker logs verbformen-app
+
+# Stop the container
+docker stop verbformen-app
+
+# Remove the container
+docker rm verbformen-app
+```
+
+### Docker Files
+
+- `Dockerfile` - Uses Python 3.11-slim base image with uv for dependency management
+- `.dockerignore` - Excludes dev files, cache, and git from build context
+
+### Notes
+
+- The Docker image only includes production dependencies (no dev tools)
+- The container exposes port 8000
+- Data is included in the image (no volume mounting needed for the verb database)
+
 ## Future Enhancement Ideas
 
 1. **Improved Matching**
@@ -310,7 +348,7 @@ uv sync
    - Study recommendations
 
 5. **Deployment**
-   - Docker container
+   - ~~Docker container~~ (Done)
    - Deploy to cloud (Railway, Fly.io, etc.)
    - Add CI/CD pipeline
 
