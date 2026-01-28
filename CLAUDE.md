@@ -107,7 +107,9 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 │   ├── app.js                    # Application logic
 │   └── api.js                    # API client
 ├── .venv/                        # Virtual environment (git ignored)
+├── .dockerignore                 # Docker build exclusions
 ├── .pre-commit-config.yaml       # Pre-commit hooks configuration
+├── Dockerfile                    # Container build instructions
 ├── pyproject.toml                # Project metadata and dependencies
 ├── uv.lock                       # Locked dependencies (committed to git)
 ├── README.md                     # User documentation
@@ -286,6 +288,41 @@ uv sync
 - CORS enabled for localhost development
 - Exact string matching prevents injection attacks
 
+## Docker
+
+### Building and Running
+
+```bash
+# Build the image
+docker build -t verbformen .
+
+# Run the container
+docker run -p 8000:8000 verbformen
+
+# Run in detached mode with a name
+docker run -d -p 8000:8000 --name verbformen-app verbformen
+
+# View logs
+docker logs verbformen-app
+
+# Stop the container
+docker stop verbformen-app
+
+# Remove the container
+docker rm verbformen-app
+```
+
+### Docker Files
+
+- `Dockerfile` - Uses Python 3.11-slim base image with uv for dependency management
+- `.dockerignore` - Excludes dev files, cache, and git from build context
+
+### Notes
+
+- The Docker image only includes production dependencies (no dev tools)
+- The container exposes port 8000
+- Data is included in the image (no volume mounting needed for the verb database)
+
 ## Future Enhancement Ideas
 
 1. **Improved Matching**
@@ -311,7 +348,7 @@ uv sync
    - Study recommendations
 
 5. **Deployment**
-   - Docker container
+   - ~~Docker container~~ (Done)
    - Deploy to cloud (Railway, Fly.io, etc.)
    - Add CI/CD pipeline
 
