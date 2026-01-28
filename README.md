@@ -7,10 +7,14 @@ A simple, stateless web application for practicing German verb conjugations. Tes
 - Choose how many verbs to practice (1-20) with an intuitive slider
 - Random selection from a database of 20 common German verbs
 - Practice 3rd person forms: Präsens (er/sie/es), Präteritum (er/sie/es), and Perfekt
+- Perfekt form requires auxiliary verb (hat/ist) - helpful hints guide you
+- Optional inputs - skip answers you don't know and see them in results
 - Instant feedback with detailed results
-- Color-coded scoring system
+- Color-coded scoring system with per-verb gradient colors (red→green based on 0-3 correct)
+- Distinct visual grouping for each verb in the results table
 - Clean, responsive interface
 - Completely stateless - no login or tracking required
+- CI/CD pipeline with automated linting and testing
 
 ## Quick Start
 
@@ -81,9 +85,11 @@ The application will be available at `http://localhost:8000`.
 3. **Fill in Forms**: Enter the conjugated forms for each randomly selected verb
    - Präsens (3rd person: er/sie/es)
    - Präteritum (3rd person: er/sie/es)
-   - Perfekt
-4. **Submit**: Click "Submit Answers" to see your results
+   - Perfekt (include "hat" or "ist" - e.g., "hat gemacht" or "ist gegangen")
+4. **Submit**: Click "Submit Answers" to see your results (empty answers are allowed)
 5. **Review**: Check your score and see which answers were correct or incorrect
+   - Each verb shows a color-coded score (red for 0/3, green for 3/3)
+   - Verb groups are visually separated for easy reading
 6. **Practice Again**: Start a new session to practice with different verbs
 
 ## Available Verbs
@@ -120,6 +126,7 @@ The application includes 20 common German verbs:
 - **Package Manager**: uv
 - **Testing**: pytest
 - **Linting/Formatting**: ruff (via pre-commit)
+- **CI/CD**: GitHub Actions (lint, format check, tests)
 
 ## Project Structure
 
@@ -155,11 +162,14 @@ verbformen/
 - Total forms per session = selected verb count × 3 forms
 - Exact string matching (case-sensitive)
 - Whitespace is automatically trimmed
+- Empty answers are allowed (counted as incorrect)
 - Results are color-coded:
   - 🟢 Green (90%+): Excellent
   - 🔵 Blue (70-89%): Good
   - 🟡 Yellow (50-69%): Average
   - 🔴 Red (<50%): Needs practice
+- Per-verb score gradient:
+  - Red (0/3), Orange (1/3), Lime (2/3), Green (3/3)
 
 ## Running Tests
 
@@ -199,6 +209,15 @@ uv run ruff format backend/      # Format
 ```
 
 Pre-commit hooks run automatically on every `git commit`. If a hook fails, fix the issues and commit again.
+
+## Continuous Integration
+
+This project uses GitHub Actions for CI. On every push and pull request to `main`:
+
+1. **Lint & Format**: Runs `ruff check` and `ruff format --check`
+2. **Tests**: Runs the full pytest suite
+
+See `.github/workflows/ci.yml` for the workflow configuration.
 
 ## Adding More Verbs
 
