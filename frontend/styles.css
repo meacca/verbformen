@@ -256,6 +256,13 @@ header h1 {
     font-size: 0.95rem;
 }
 
+.perfekt-hint {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+}
+
 .form-group input {
     padding: 12px;
     border: 2px solid #e0e0e0;
@@ -386,8 +393,26 @@ header h1 {
 
 .verb-cell {
     font-weight: 600;
-    color: #667eea;
     font-size: 1.1rem;
+    vertical-align: middle;
+    background: #f8f9fa;
+    border-right: 3px solid #dee2e6;
+}
+
+.verb-name {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.verb-score {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
 }
 
 .correct-row {
@@ -396,6 +421,34 @@ header h1 {
 
 .incorrect-row {
     background: #f8d7da;
+}
+
+/* Verb group styling for distinct separation */
+.verb-group-start td {
+    border-top: 3px solid #667eea;
+}
+
+.verb-group-end td {
+    border-bottom: 3px solid #667eea;
+}
+
+.verb-group-end {
+    margin-bottom: 10px;
+}
+
+/* Add spacing between verb groups */
+.results-table tbody tr.verb-group-start td:not(.verb-cell) {
+    padding-top: 16px;
+}
+
+.results-table tbody tr.verb-group-end td {
+    padding-bottom: 16px;
+}
+
+/* Empty answer styling */
+.empty-answer {
+    color: #999;
+    font-style: italic;
 }
 
 .result-indicator {
