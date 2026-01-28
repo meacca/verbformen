@@ -50,6 +50,30 @@ Open your browser and navigate to:
 http://localhost:8000
 ```
 
+### Running with Docker
+
+Build the Docker image:
+```bash
+docker build -t verbformen .
+```
+
+Run the container:
+```bash
+docker run -p 8000:8000 verbformen
+```
+
+Or run in detached mode:
+```bash
+docker run -d -p 8000:8000 --name verbformen-app verbformen
+```
+
+Stop the container:
+```bash
+docker stop verbformen-app
+```
+
+The application will be available at `http://localhost:8000`.
+
 ## How to Use
 
 1. **Choose Verb Count**: Use the slider to select how many verbs you want to practice (1-20)
