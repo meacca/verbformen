@@ -144,7 +144,12 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 **Three main screens:**
 1. **Start screen**: Welcome message, verb count slider (1-20), "Begin Session" button
 2. **Quiz screen**: Form with N verbs × 3 input fields (based on selected count)
+   - Perfekt field includes hint to use "hat/ist"
+   - All fields are optional (empty answers allowed)
 3. **Results screen**: Score display + detailed table
+   - Verb groups visually separated with borders
+   - Per-verb gradient color (red→orange→lime→green) based on 0-3 correct
+   - Score badge showing X/3 for each verb
 
 **State management:**
 - Simple object-based state in `app.js`
@@ -349,8 +354,8 @@ docker rm verbformen-app
 
 5. **Deployment**
    - ~~Docker container~~ (Done)
+   - ~~CI/CD pipeline~~ (Done - GitHub Actions)
    - Deploy to cloud (Railway, Fly.io, etc.)
-   - Add CI/CD pipeline
 
 ## Troubleshooting
 
@@ -417,6 +422,19 @@ FastAPI provides automatic interactive API docs:
 
 These are generated automatically from the code and Pydantic models.
 
+## Continuous Integration
+
+GitHub Actions runs on every push and PR to `main`:
+
+1. **Lint & Format** job:
+   - `ruff check backend/` - Lint Python code
+   - `ruff format --check backend/` - Verify formatting
+
+2. **Tests** job:
+   - `pytest backend/tests/ -v` - Run full test suite
+
+See `.github/workflows/ci.yml` for configuration.
+
 ## Notes for Claude
 
 When working on this project:
@@ -428,6 +446,7 @@ When working on this project:
 6. The app is intentionally stateless
 7. Frontend is vanilla JS - no build step needed
 8. Data file can be edited directly (no migration needed)
+9. CI will automatically run linting and tests on PRs
 
 ## Contact & Feedback
 

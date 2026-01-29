@@ -126,7 +126,6 @@ function renderQuizForm(verbs) {
                         name="praesens-${index}"
                         data-verb="${verb.infinitive}"
                         data-form="praesens"
-                        required
                         autocomplete="off"
                     >
                 </div>
@@ -138,19 +137,17 @@ function renderQuizForm(verbs) {
                         name="praeteritum-${index}"
                         data-verb="${verb.infinitive}"
                         data-form="praeteritum"
-                        required
                         autocomplete="off"
                     >
                 </div>
                 <div class="form-group">
-                    <label for="perfekt-${index}">Perfekt:</label>
+                    <label for="perfekt-${index}">Perfekt <span class="perfekt-hint">(include hat/ist)</span>:</label>
                     <input
                         type="text"
                         id="perfekt-${index}"
                         name="perfekt-${index}"
                         data-verb="${verb.infinitive}"
                         data-form="perfekt"
-                        required
                         autocomplete="off"
                     >
                 </div>
@@ -214,6 +211,23 @@ async function handleSubmitAnswers(event) {
 }
 
 /**
+ * Get gradient color from red to green based on score (0-3)
+ * @param {number} correctCount - Number of correct answers (0-3)
+ * @returns {string} - CSS color string
+ */
+function getScoreGradientColor(correctCount) {
+    // Colors: 0 = red, 1 = orange, 2 = yellow-green, 3 = green
+    const colors = [
+        { r: 220, g: 53, b: 69 },   // 0/3 - red
+        { r: 255, g: 152, b: 0 },   // 1/3 - orange
+        { r: 205, g: 220, b: 57 },  // 2/3 - lime
+        { r: 40, g: 167, b: 69 }    // 3/3 - green
+    ];
+    const color = colors[Math.min(correctCount, 3)];
+    return `rgb(${color.r}, ${color.g}, ${color.b})`;
+}
+
+/**
  * Render the results table
  * @param {Object} results - Results object from backend
  */
@@ -244,21 +258,34 @@ function renderResults(results) {
     const tbody = document.getElementById('results-tbody');
     tbody.innerHTML = '';
 
-    results.results.forEach((verbResult) => {
+    results.results.forEach((verbResult, verbIndex) => {
         const forms = ['praesens', 'praeteritum', 'perfekt'];
         const formLabels = ['Präsens', 'Präteritum', 'Perfekt'];
+
+        // Calculate correct count for this verb
+        const verbCorrectCount = forms.filter(form => verbResult.correct[form]).length;
+        const verbScoreColor = getScoreGradientColor(verbCorrectCount);
 
         forms.forEach((form, formIndex) => {
             const row = document.createElement('tr');
             const isCorrect = verbResult.correct[form];
             row.className = isCorrect ? 'correct-row' : 'incorrect-row';
 
+            // Add class for verb group styling
+            if (formIndex === 0) {
+                row.classList.add('verb-group-start');
+            }
+            if (formIndex === 2) {
+                row.classList.add('verb-group-end');
+            }
+
             // Only show verb name on first row
             if (formIndex === 0) {
                 const verbCell = document.createElement('td');
                 verbCell.rowSpan = 3;
                 verbCell.className = 'verb-cell';
-                verbCell.textContent = verbResult.infinitive;
+                verbCell.innerHTML = `<span class="verb-name" style="color: ${verbScoreColor}">${verbResult.infinitive}</span>
+                    <span class="verb-score" style="background: ${verbScoreColor}">${verbCorrectCount}/3</span>`;
                 row.appendChild(verbCell);
             }
 
@@ -269,7 +296,8 @@ function renderResults(results) {
 
             // User answer
             const userCell = document.createElement('td');
-            userCell.textContent = verbResult.user_answers[form];
+            userCell.textContent = verbResult.user_answers[form] || '—';
+            userCell.className = verbResult.user_answers[form] ? '' : 'empty-answer';
             row.appendChild(userCell);
 
             // Correct answer
