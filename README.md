@@ -5,7 +5,9 @@ A simple, stateless web application for practicing German verb conjugations. Tes
 ## Features
 
 - Choose how many verbs to practice (1-20) with an intuitive slider
-- Random selection from a database of 20 common German verbs
+- Random selection from a database of **165 B1-level irregular German verbs**
+- **Russian translations** displayed for each verb to help with meaning
+- **Example sentences** shown to provide context for each verb
 - Practice 3rd person forms: Präsens (er/sie/es), Präteritum (er/sie/es), and Perfekt
 - Perfekt form requires auxiliary verb (hat/ist) - helpful hints guide you
 - Optional inputs - skip answers you don't know and see them in results
@@ -94,30 +96,24 @@ The application will be available at `http://localhost:8000`.
 
 ## Available Verbs
 
-The application includes 20 common German verbs:
+The application includes **165 B1-level irregular German verbs** with:
+- Complete conjugation forms (Präsens, Präteritum, Perfekt)
+- Russian translations for each verb
+- 2-3 example sentences per verb
+
+Example verbs include:
 
 | Infinitive | Präsens | Präteritum | Perfekt |
 |-----------|---------|------------|---------|
-| sein | ist | war | ist gewesen |
-| haben | hat | hatte | hat gehabt |
-| werden | wird | wurde | ist geworden |
 | gehen | geht | ging | ist gegangen |
 | kommen | kommt | kam | ist gekommen |
-| machen | macht | machte | hat gemacht |
-| sagen | sagt | sagte | hat gesagt |
-| geben | gibt | gab | hat gegeben |
-| können | kann | konnte | hat gekonnt |
-| müssen | muss | musste | hat gemusst |
-| wissen | weiß | wusste | hat gewusst |
-| sehen | sieht | sah | hat gesehen |
-| nehmen | nimmt | nahm | hat genommen |
-| finden | findet | fand | hat gefunden |
-| aufstehen | steht auf | stand auf | ist aufgestanden |
 | fahren | fährt | fuhr | ist gefahren |
-| schreiben | schreibt | schrieb | hat geschrieben |
-| lesen | liest | las | hat gelesen |
-| essen | isst | aß | hat gegessen |
-| trinken | trinkt | trank | hat getrunken |
+| aufstehen | steht auf | stand auf | ist aufgestanden |
+| sich befinden | befindet sich | befand sich | hat sich befunden |
+| beginnen | beginnt | begann | hat begonnen |
+| ... | ... | ... | ... |
+
+See `data/verbs_forms.json` for the complete list.
 
 ## Technology Stack
 
@@ -143,7 +139,10 @@ verbformen/
 │   ├── app.js              # Application logic
 │   └── api.js              # API client
 ├── data/                    # Verb database
-│   └── verbs_forms.json
+│   ├── verbs_forms.json             # 165 verbs with conjugations
+│   ├── verbs_examples.json          # Example sentences per verb
+│   └── translations/
+│       └── verbs_translation_ru.json # Russian translations
 ├── .pre-commit-config.yaml  # Pre-commit hooks configuration
 ├── pyproject.toml           # Project metadata and dependencies
 └── uv.lock                  # Locked dependencies for reproducibility
@@ -184,7 +183,7 @@ uv run pytest backend/tests/test_services.py -v
 uv run pytest backend/tests/test_api.py -v
 ```
 
-All 29 tests should pass.
+All 53 tests should pass.
 
 ## Linting and Formatting
 
@@ -223,8 +222,7 @@ See `.github/workflows/ci.yml` for the workflow configuration.
 
 To add more verbs to the learning database:
 
-1. Open `data/verbs_forms.json`
-2. Add a new entry with the infinitive as the key:
+1. Open `data/verbs_forms.json` and add verb conjugations:
 ```json
 {
   "schlafen": {
@@ -234,7 +232,26 @@ To add more verbs to the learning database:
   }
 }
 ```
-3. Save the file - no restart required!
+
+2. Open `data/translations/verbs_translation_ru.json` and add Russian translations:
+```json
+{
+  "schlafen": ["спать", "засыпать"]
+}
+```
+
+3. Open `data/verbs_examples.json` and add 2-3 example sentences:
+```json
+{
+  "schlafen": [
+    "Er schläft jeden Tag 8 Stunden.",
+    "Sie schlief gestern lange.",
+    "Ich habe gut geschlafen."
+  ]
+}
+```
+
+4. Save all files - no restart required!
 
 ## Development
 
