@@ -71,11 +71,18 @@ async def start_session(count: int = Query(default=10, ge=1, le=20)):
         # Get random verbs
         infinitives = verb_service.get_random_verbs(count=count)
 
-        # Create verb info objects with indices
-        verbs = [
-            VerbInfo(infinitive=infinitive, index=idx)
-            for idx, infinitive in enumerate(infinitives)
-        ]
+        # Create verb info objects with indices, translations, and examples
+        verbs = []
+        for idx, infinitive in enumerate(infinitives):
+            hints = verb_service.get_verb_hints(infinitive)
+            verbs.append(
+                VerbInfo(
+                    infinitive=infinitive,
+                    index=idx,
+                    translations=hints["translations"],
+                    example=hints["example"],
+                )
+            )
 
         return SessionStart(session_id=session_id, verbs=verbs, total_verbs=len(verbs))
 

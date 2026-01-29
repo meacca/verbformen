@@ -91,7 +91,10 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 ```
 /Users/meacca/dev/verbformen/
 ├── data/
-│   └── verbs_forms.json          # 20 German verbs with conjugations
+│   ├── verbs_forms.json          # 165 B1-level irregular German verbs
+│   ├── verbs_examples.json       # Example sentences (2-3 per verb)
+│   └── translations/
+│       └── verbs_translation_ru.json  # Russian translations
 ├── backend/
 │   ├── __init__.py
 │   ├── main.py                   # FastAPI app & API routes
@@ -130,11 +133,15 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 
 1. **VerbService** (`backend/services.py`)
    - `load_verbs()`: Load verbs from JSON, cache in memory
+   - `load_translations()`: Load Russian translations, cache in memory
+   - `load_examples()`: Load example sentences, cache in memory
+   - `get_verb_hints()`: Get translations and one random example for a verb
    - `get_random_verbs(count=10)`: Random selection
    - `check_answer()`: Compare user input (exact match, strips whitespace)
    - `grade_session()`: Grade all answers, calculate score
 
 2. **Pydantic Models** (`backend/models.py`)
+   - `VerbInfo`: Verb with infinitive, index, translations, and example
    - `SessionStart`: Response for starting session
    - `SubmitRequest`: Request body for submissions
    - `SessionResult`: Detailed grading results
@@ -144,6 +151,7 @@ If a hook fails, the commit is blocked. Fix the issues and try again.
 **Three main screens:**
 1. **Start screen**: Welcome message, verb count slider (1-20), "Begin Session" button
 2. **Quiz screen**: Form with N verbs × 3 input fields (based on selected count)
+   - Each verb shows Russian translations and an example sentence
    - Perfekt field includes hint to use "hat/ist"
    - All fields are optional (empty answers allowed)
 3. **Results screen**: Score display + detailed table
@@ -185,17 +193,22 @@ Example:
 
 ### Test Coverage
 
-**Backend tests: 29 tests**
+**Backend tests: 53 tests**
 
 Unit tests (`test_services.py`):
 - Verb loading and caching
+- Translations loading and caching
+- Examples loading and caching
+- `get_verb_hints()` functionality
 - Random selection logic
 - Answer checking (exact match, whitespace, case sensitivity)
 - Session grading and scoring
+- Data file validation (structure, consistency)
 
 Integration tests (`test_api.py`):
 - Health check endpoint
 - Session start (random verbs, unique IDs, configurable count 1-20)
+- Session start includes translations and examples
 - Count parameter validation (min, max, invalid values)
 - Answer submission (correct, incorrect, mixed)
 - Error handling (empty answers, invalid verbs)
@@ -210,19 +223,33 @@ Integration tests (`test_api.py`):
 
 ## Adding New Verbs
 
-To add more verbs to the dataset:
+To add more verbs to the dataset, update all three data files:
 
-1. Edit `data/verbs_forms.json`
-2. Add entry with infinitive as key
-3. Provide all three forms (3rd person):
+1. Edit `data/verbs_forms.json` - add verb conjugations:
    ```json
    "schlafen": {
      "Präsens": "schläft",
      "Präteritum": "schlief",
-     "Perfekt": "hat geschlossen"
+     "Perfekt": "hat geschlafen"
    }
    ```
+
+2. Edit `data/translations/verbs_translation_ru.json` - add Russian translations:
+   ```json
+   "schlafen": ["спать", "засыпать"]
+   ```
+
+3. Edit `data/verbs_examples.json` - add 2-3 example sentences:
+   ```json
+   "schlafen": [
+     "Er schläft jeden Tag 8 Stunden.",
+     "Sie schlief gestern lange.",
+     "Ich habe gut geschlafen."
+   ]
+   ```
+
 4. No code changes needed - app reads JSON dynamically
+5. Tests will verify all three files have matching keys
 
 ## Dependencies
 
@@ -338,14 +365,14 @@ docker rm verbformen-app
 2. **User Experience**
    - Progress indicator during quiz
    - Timer mode for practice
-   - Show hints/tips
+   - ~~Show hints/tips~~ (Done - translations and examples)
    - Keyboard shortcuts
 
 3. **Content**
    - Difficulty levels (beginner/advanced)
    - Filter by verb type (regular/irregular)
    - Practice specific tenses only
-   - More verbs (target 100+)
+   - ~~More verbs (target 100+)~~ (Done - 165 B1 irregular verbs)
 
 4. **Analytics**
    - Track commonly missed verbs (client-side)
