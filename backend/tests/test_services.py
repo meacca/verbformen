@@ -1,10 +1,14 @@
 """Unit tests for VerbService"""
 
 import json
+from pathlib import Path
 
 import pytest
 
 from backend.services import VerbService
+
+DATA_PATH = Path(__file__).parent.parent.parent / "data" / "verbs_forms.json"
+EXPECTED_KEYS = {"Präsens", "Präteritum", "Perfekt"}
 
 
 @pytest.fixture
@@ -215,3 +219,46 @@ def test_grade_session_includes_correct_answers(verb_service):
     assert verb_result["correct_answers"]["praeteritum"] == "war"
     assert verb_result["correct_answers"]["perfekt"] == "ist gewesen"
     assert verb_result["user_answers"]["praesens"] == "wrong"
+
+
+class TestVerbsDataFile:
+    """Tests for validating the structure of the verbs_forms.json data file"""
+
+    def test_data_file_exists(self):
+        """Test that the verbs data file exists"""
+        assert DATA_PATH.exists(), f"Data file not found: {DATA_PATH}"
+
+    def test_data_file_is_valid_json(self):
+        """Test that the data file is valid JSON"""
+        with open(DATA_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+        assert isinstance(data, dict)
+
+    def test_data_file_has_verbs(self):
+        """Test that the data file contains at least one verb"""
+        with open(DATA_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+        assert len(data) > 0, "Data file contains no verbs"
+
+    def test_each_verb_has_exactly_three_keys(self):
+        """Test that each verb entry has exactly 3 keys: Präsens, Präteritum, Perfekt"""
+        with open(DATA_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+
+        for verb, forms in data.items():
+            assert isinstance(forms, dict), f"Verb '{verb}' value is not a dict"
+            assert (
+                set(forms.keys()) == EXPECTED_KEYS
+            ), f"Verb '{verb}' has keys {set(forms.keys())}, expected {EXPECTED_KEYS}"
+
+    def test_all_verb_forms_are_non_empty_strings(self):
+        """Test that all verb forms are non-empty strings"""
+        with open(DATA_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+
+        for verb, forms in data.items():
+            for key, value in forms.items():
+                assert isinstance(
+                    value, str
+                ), f"Verb '{verb}' form '{key}' is not a string"
+                assert len(value.strip()) > 0, f"Verb '{verb}' form '{key}' is empty"

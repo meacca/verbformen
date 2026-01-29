@@ -1,102 +1,827 @@
 {
-    "sein": {
-        "Präsens": "ist",
-        "Präteritum": "war",
-        "Perfekt": "ist gewesen"
-    },
-    "haben": {
-        "Präsens": "hat",
-        "Präteritum": "hatte",
-        "Perfekt": "hat gehabt"
-    },
-    "werden": {
-        "Präsens": "wird",
-        "Präteritum": "wurde",
-        "Perfekt": "ist geworden"
-    },
-    "gehen": {
-        "Präsens": "geht",
-        "Präteritum": "ging",
-        "Perfekt": "ist gegangen"
-    },
-    "kommen": {
-        "Präsens": "kommt",
-        "Präteritum": "kam",
-        "Perfekt": "ist gekommen"
-    },
-    "machen": {
-        "Präsens": "macht",
-        "Präteritum": "machte",
-        "Perfekt": "hat gemacht"
-    },
-    "sagen": {
-        "Präsens": "sagt",
-        "Präteritum": "sagte",
-        "Perfekt": "hat gesagt"
-    },
-    "geben": {
-        "Präsens": "gibt",
-        "Präteritum": "gab",
-        "Perfekt": "hat gegeben"
-    },
-    "können": {
-        "Präsens": "kann",
-        "Präteritum": "konnte",
-        "Perfekt": "hat gekonnt"
-    },
-    "müssen": {
-        "Präsens": "muss",
-        "Präteritum": "musste",
-        "Perfekt": "hat gemusst"
-    },
-    "wissen": {
-        "Präsens": "weiß",
-        "Präteritum": "wusste",
-        "Perfekt": "hat gewusst"
-    },
-    "sehen": {
-        "Präsens": "sieht",
-        "Präteritum": "sah",
-        "Perfekt": "hat gesehen"
-    },
-    "nehmen": {
-        "Präsens": "nimmt",
-        "Präteritum": "nahm",
-        "Perfekt": "hat genommen"
-    },
-    "finden": {
-        "Präsens": "findet",
-        "Präteritum": "fand",
-        "Perfekt": "hat gefunden"
-    },
     "aufstehen": {
         "Präsens": "steht auf",
         "Präteritum": "stand auf",
         "Perfekt": "ist aufgestanden"
     },
-    "fahren": {
-        "Präsens": "fährt",
-        "Präteritum": "fuhr",
-        "Perfekt": "ist gefahren"
+    "ausziehen": {
+        "Präsens": "zieht aus",
+        "Präteritum": "zog aus",
+        "Perfekt": "ist ausgezogen"
     },
-    "schreiben": {
-        "Präsens": "schreibt",
-        "Präteritum": "schrieb",
-        "Perfekt": "hat geschrieben"
+    "backen": {
+        "Präsens": "bäckt/backt",
+        "Präteritum": "backte",
+        "Perfekt": "hat gebacken"
     },
-    "lesen": {
-        "Präsens": "liest",
-        "Präteritum": "las",
-        "Perfekt": "hat gelesen"
+    "sich befinden": {
+        "Präsens": "befindet sich",
+        "Präteritum": "befand sich",
+        "Perfekt": "hat sich befunden"
+    },
+    "beginnen": {
+        "Präsens": "beginnt",
+        "Präteritum": "begann",
+        "Perfekt": "hat begonnen"
+    },
+    "begreifen": {
+        "Präsens": "begreift",
+        "Präteritum": "begriff",
+        "Perfekt": "hat begriffen"
+    },
+    "behalten": {
+        "Präsens": "behält",
+        "Präteritum": "behielt",
+        "Perfekt": "hat behalten"
+    },
+    "beißen": {
+        "Präsens": "beißt",
+        "Präteritum": "biss",
+        "Perfekt": "hat gebissen"
+    },
+    "bekommen": {
+        "Präsens": "bekommt",
+        "Präteritum": "bekam",
+        "Perfekt": "hat bekommen"
+    },
+    "beweisen": {
+        "Präsens": "beweist",
+        "Präteritum": "bewies",
+        "Perfekt": "hat bewiesen"
+    },
+    "sich bewerben": {
+        "Präsens": "bewirbt sich",
+        "Präteritum": "bewarb sich",
+        "Perfekt": "hat sich beworben"
+    },
+    "sich beziehen auf": {
+        "Präsens": "bezieht sich",
+        "Präteritum": "bezog sich",
+        "Perfekt": "hat sich bezogen"
+    },
+    "bieten": {
+        "Präsens": "bietet",
+        "Präteritum": "bot",
+        "Perfekt": "hat geboten"
+    },
+    "bitten": {
+        "Präsens": "bittet",
+        "Präteritum": "bat",
+        "Perfekt": "hat gebeten"
+    },
+    "bleiben": {
+        "Präsens": "bleibt",
+        "Präteritum": "blieb",
+        "Perfekt": "ist geblieben"
+    },
+    "braten": {
+        "Präsens": "brät",
+        "Präteritum": "briet",
+        "Perfekt": "hat gebraten"
+    },
+    "brechen": {
+        "Präsens": "bricht",
+        "Präteritum": "brach",
+        "Perfekt": "hat gebrochen"
+    },
+    "brennen": {
+        "Präsens": "brennt",
+        "Präteritum": "brannte",
+        "Perfekt": "hat gebrannt"
+    },
+    "bringen": {
+        "Präsens": "bringt",
+        "Präteritum": "brachte",
+        "Perfekt": "hat gebracht"
+    },
+    "denken": {
+        "Präsens": "denkt",
+        "Präteritum": "dachte",
+        "Perfekt": "hat gedacht"
+    },
+    "dürfen": {
+        "Präsens": "darf",
+        "Präteritum": "durfte",
+        "Perfekt": "hat gedurft"
+    },
+    "einfallen": {
+        "Präsens": "fällt ein",
+        "Präteritum": "fiel ein",
+        "Perfekt": "ist eingefallen"
+    },
+    "einladen": {
+        "Präsens": "lädt ein",
+        "Präteritum": "lud ein",
+        "Perfekt": "hat eingeladen"
+    },
+    "einschlafen": {
+        "Präsens": "schläft ein",
+        "Präteritum": "schlief ein",
+        "Perfekt": "ist eingeschlafen"
+    },
+    "einziehen": {
+        "Präsens": "zieht ein",
+        "Präteritum": "zog ein",
+        "Perfekt": "ist eingezogen"
+    },
+    "empfangen": {
+        "Präsens": "empfängt",
+        "Präteritum": "empfing",
+        "Perfekt": "hat empfangen"
+    },
+    "empfehlen": {
+        "Präsens": "empfiehlt",
+        "Präteritum": "empfahl",
+        "Perfekt": "hat empfohlen"
+    },
+    "empfinden": {
+        "Präsens": "empfindet",
+        "Präteritum": "empfand",
+        "Perfekt": "hat empfunden"
+    },
+    "entlassen": {
+        "Präsens": "entlässt",
+        "Präteritum": "entließ",
+        "Perfekt": "hat entlassen"
+    },
+    "entscheiden": {
+        "Präsens": "entscheidet",
+        "Präteritum": "entschied",
+        "Perfekt": "hat entschieden"
+    },
+    "sich entschließen": {
+        "Präsens": "entschließt sich",
+        "Präteritum": "entschloss sich",
+        "Perfekt": "hat sich entschlossen"
+    },
+    "entstehen": {
+        "Präsens": "entsteht",
+        "Präteritum": "entstand",
+        "Perfekt": "ist entstanden"
+    },
+    "erfahren": {
+        "Präsens": "erfährt",
+        "Präteritum": "erfuhr",
+        "Perfekt": "hat erfahren"
+    },
+    "erfinden": {
+        "Präsens": "erfindet",
+        "Präteritum": "erfand",
+        "Perfekt": "hat erfunden"
+    },
+    "erhalten": {
+        "Präsens": "erhält",
+        "Präteritum": "erhielt",
+        "Perfekt": "hat erhalten"
+    },
+    "erkennen": {
+        "Präsens": "erkennt",
+        "Präteritum": "erkannte",
+        "Perfekt": "hat erkannt"
+    },
+    "erscheinen": {
+        "Präsens": "erscheint",
+        "Präteritum": "erschien",
+        "Perfekt": "ist erschienen"
+    },
+    "erschrecken": {
+        "Präsens": "erschrickt",
+        "Präteritum": "erschrak",
+        "Perfekt": "ist erschrocken"
+    },
+    "erziehen": {
+        "Präsens": "erzieht",
+        "Präteritum": "erzog",
+        "Perfekt": "hat erzogen"
     },
     "essen": {
         "Präsens": "isst",
         "Präteritum": "aß",
         "Perfekt": "hat gegessen"
     },
+    "fahren": {
+        "Präsens": "fährt",
+        "Präteritum": "fuhr",
+        "Perfekt": "ist gefahren"
+    },
+    "fallen": {
+        "Präsens": "fällt",
+        "Präteritum": "fiel",
+        "Perfekt": "ist gefallen"
+    },
+    "fangen": {
+        "Präsens": "fängt",
+        "Präteritum": "fing",
+        "Perfekt": "hat gefangen"
+    },
+    "finden": {
+        "Präsens": "findet",
+        "Präteritum": "fand",
+        "Perfekt": "hat gefunden"
+    },
+    "fliegen": {
+        "Präsens": "fliegt",
+        "Präteritum": "flog",
+        "Perfekt": "ist geflogen"
+    },
+    "fliehen": {
+        "Präsens": "flieht",
+        "Präteritum": "floh",
+        "Perfekt": "ist geflohen"
+    },
+    "fließen": {
+        "Präsens": "fließt",
+        "Präteritum": "floss",
+        "Perfekt": "ist geflossen"
+    },
+    "fressen": {
+        "Präsens": "frisst",
+        "Präteritum": "fraß",
+        "Perfekt": "hat gefressen"
+    },
+    "frieren": {
+        "Präsens": "friert",
+        "Präteritum": "fror",
+        "Perfekt": "hat gefroren"
+    },
+    "geben": {
+        "Präsens": "gibt",
+        "Präteritum": "gab",
+        "Perfekt": "hat gegeben"
+    },
+    "gefallen": {
+        "Präsens": "gefällt",
+        "Präteritum": "gefiel",
+        "Perfekt": "hat gefallen"
+    },
+    "gehen": {
+        "Präsens": "geht",
+        "Präteritum": "ging",
+        "Perfekt": "ist gegangen"
+    },
+    "gelingen": {
+        "Präsens": "gelingt",
+        "Präteritum": "gelang",
+        "Perfekt": "ist gelungen"
+    },
+    "gelten": {
+        "Präsens": "gilt",
+        "Präteritum": "galt",
+        "Perfekt": "hat gegolten"
+    },
+    "genießen": {
+        "Präsens": "genießt",
+        "Präteritum": "genoss",
+        "Perfekt": "hat genossen"
+    },
+    "geraten": {
+        "Präsens": "gerät",
+        "Präteritum": "geriet",
+        "Perfekt": "ist geraten"
+    },
+    "geschehen": {
+        "Präsens": "geschieht",
+        "Präteritum": "geschah",
+        "Perfekt": "ist geschehen"
+    },
+    "gewinnen": {
+        "Präsens": "gewinnt",
+        "Präteritum": "gewann",
+        "Perfekt": "hat gewonnen"
+    },
+    "gießen": {
+        "Präsens": "gießt",
+        "Präteritum": "goss",
+        "Perfekt": "hat gegossen"
+    },
+    "greifen": {
+        "Präsens": "greift",
+        "Präteritum": "griff",
+        "Perfekt": "hat gegriffen"
+    },
+    "haben": {
+        "Präsens": "hat",
+        "Präteritum": "hatte",
+        "Perfekt": "hat gehabt"
+    },
+    "halten": {
+        "Präsens": "hält",
+        "Präteritum": "hielt",
+        "Perfekt": "hat gehalten"
+    },
+    "hängen": {
+        "Präsens": "hängt",
+        "Präteritum": "hing",
+        "Perfekt": "hat gehangen"
+    },
+    "heben": {
+        "Präsens": "hebt",
+        "Präteritum": "hob",
+        "Perfekt": "hat gehoben"
+    },
+    "heißen": {
+        "Präsens": "heißt",
+        "Präteritum": "hieß",
+        "Perfekt": "hat geheißen"
+    },
+    "helfen": {
+        "Präsens": "hilft",
+        "Präteritum": "half",
+        "Perfekt": "hat geholfen"
+    },
+    "hinweisen auf": {
+        "Präsens": "weist hin",
+        "Präteritum": "wies hin",
+        "Perfekt": "hat hingewiesen"
+    },
+    "kennen": {
+        "Präsens": "kennt",
+        "Präteritum": "kannte",
+        "Perfekt": "hat gekannt"
+    },
+    "klingen": {
+        "Präsens": "klingt",
+        "Präteritum": "klang",
+        "Perfekt": "hat geklungen"
+    },
+    "können": {
+        "Präsens": "kann",
+        "Präteritum": "konnte",
+        "Perfekt": "hat gekonnt"
+    },
+    "kommen": {
+        "Präsens": "kommt",
+        "Präteritum": "kam",
+        "Perfekt": "ist gekommen"
+    },
+    "laden": {
+        "Präsens": "lädt",
+        "Präteritum": "lud",
+        "Perfekt": "hat geladen"
+    },
+    "lassen": {
+        "Präsens": "lässt",
+        "Präteritum": "ließ",
+        "Perfekt": "hat gelassen"
+    },
+    "laufen": {
+        "Präsens": "läuft",
+        "Präteritum": "lief",
+        "Perfekt": "ist gelaufen"
+    },
+    "leiden": {
+        "Präsens": "leidet",
+        "Präteritum": "litt",
+        "Perfekt": "hat gelitten"
+    },
+    "leihen": {
+        "Präsens": "leiht",
+        "Präteritum": "lieh",
+        "Perfekt": "hat geliehen"
+    },
+    "lesen": {
+        "Präsens": "liest",
+        "Präteritum": "las",
+        "Perfekt": "hat gelesen"
+    },
+    "liegen": {
+        "Präsens": "liegt",
+        "Präteritum": "lag",
+        "Perfekt": "hat gelegen"
+    },
+    "lügen": {
+        "Präsens": "lügt",
+        "Präteritum": "log",
+        "Perfekt": "hat gelogen"
+    },
+    "messen": {
+        "Präsens": "misst",
+        "Präteritum": "maß",
+        "Perfekt": "hat gemessen"
+    },
+    "mögen": {
+        "Präsens": "mag",
+        "Präteritum": "mochte",
+        "Perfekt": "hat gemocht"
+    },
+    "müssen": {
+        "Präsens": "muss",
+        "Präteritum": "musste",
+        "Perfekt": "hat gemusst"
+    },
+    "nachweisen": {
+        "Präsens": "weist nach",
+        "Präteritum": "wies nach",
+        "Perfekt": "hat nachgewiesen"
+    },
+    "nehmen": {
+        "Präsens": "nimmt",
+        "Präteritum": "nahm",
+        "Perfekt": "hat genommen"
+    },
+    "nennen": {
+        "Präsens": "nennt",
+        "Präteritum": "nannte",
+        "Perfekt": "hat genannt"
+    },
+    "raten": {
+        "Präsens": "rät",
+        "Präteritum": "riet",
+        "Perfekt": "hat geraten"
+    },
+    "reiben": {
+        "Präsens": "reibt",
+        "Präteritum": "rieb",
+        "Perfekt": "hat gerieben"
+    },
+    "reiten": {
+        "Präsens": "reitet",
+        "Präteritum": "ritt",
+        "Perfekt": "ist geritten"
+    },
+    "rennen": {
+        "Präsens": "rennt",
+        "Präteritum": "rannte",
+        "Perfekt": "ist gerannt"
+    },
+    "riechen": {
+        "Präsens": "riecht",
+        "Präteritum": "roch",
+        "Perfekt": "hat gerochen"
+    },
+    "rufen": {
+        "Präsens": "ruft",
+        "Präteritum": "rief",
+        "Perfekt": "hat gerufen"
+    },
+    "schaffen": {
+        "Präsens": "schafft",
+        "Präteritum": "schuf",
+        "Perfekt": "hat geschaffen"
+    },
+    "scheinen": {
+        "Präsens": "scheint",
+        "Präteritum": "schien",
+        "Perfekt": "hat geschienen"
+    },
+    "schieben": {
+        "Präsens": "schiebt",
+        "Präteritum": "schob",
+        "Perfekt": "hat geschoben"
+    },
+    "schießen": {
+        "Präsens": "schießt",
+        "Präteritum": "schoss",
+        "Perfekt": "hat geschossen"
+    },
+    "schlafen": {
+        "Präsens": "schläft",
+        "Präteritum": "schlief",
+        "Perfekt": "hat geschlafen"
+    },
+    "schlagen": {
+        "Präsens": "schlägt",
+        "Präteritum": "schlug",
+        "Perfekt": "hat geschlagen"
+    },
+    "schließen": {
+        "Präsens": "schließt",
+        "Präteritum": "schloss",
+        "Perfekt": "hat geschlossen"
+    },
+    "schmelzen": {
+        "Präsens": "schmilzt",
+        "Präteritum": "schmolz",
+        "Perfekt": "ist geschmolzen"
+    },
+    "schneiden": {
+        "Präsens": "schneidet",
+        "Präteritum": "schnitt",
+        "Perfekt": "hat geschnitten"
+    },
+    "schreiben": {
+        "Präsens": "schreibt",
+        "Präteritum": "schrieb",
+        "Perfekt": "hat geschrieben"
+    },
+    "schreien": {
+        "Präsens": "schreit",
+        "Präteritum": "schrie",
+        "Perfekt": "hat geschrien"
+    },
+    "schweigen": {
+        "Präsens": "schweigt",
+        "Präteritum": "schwieg",
+        "Perfekt": "hat geschwiegen"
+    },
+    "schwimmen": {
+        "Präsens": "schwimmt",
+        "Präteritum": "schwamm",
+        "Perfekt": "ist geschwommen"
+    },
+    "sehen": {
+        "Präsens": "sieht",
+        "Präteritum": "sah",
+        "Perfekt": "hat gesehen"
+    },
+    "sein": {
+        "Präsens": "ist",
+        "Präteritum": "war",
+        "Perfekt": "ist gewesen"
+    },
+    "senden": {
+        "Präsens": "sendet",
+        "Präteritum": "sandte/sendete",
+        "Perfekt": "hat gesandt/gesendet"
+    },
+    "singen": {
+        "Präsens": "singt",
+        "Präteritum": "sang",
+        "Perfekt": "hat gesungen"
+    },
+    "sinken": {
+        "Präsens": "sinkt",
+        "Präteritum": "sank",
+        "Perfekt": "ist gesunken"
+    },
+    "sitzen": {
+        "Präsens": "sitzt",
+        "Präteritum": "saß",
+        "Perfekt": "hat gesessen"
+    },
+    "sollen": {
+        "Präsens": "soll",
+        "Präteritum": "sollte",
+        "Perfekt": "hat gesollt"
+    },
+    "sprechen": {
+        "Präsens": "spricht",
+        "Präteritum": "sprach",
+        "Perfekt": "hat gesprochen"
+    },
+    "springen": {
+        "Präsens": "springt",
+        "Präteritum": "sprang",
+        "Perfekt": "ist gesprungen"
+    },
+    "stechen": {
+        "Präsens": "sticht",
+        "Präteritum": "stach",
+        "Perfekt": "hat gestochen"
+    },
+    "stehen": {
+        "Präsens": "steht",
+        "Präteritum": "stand",
+        "Perfekt": "hat gestanden"
+    },
+    "stehlen": {
+        "Präsens": "stiehlt",
+        "Präteritum": "stahl",
+        "Perfekt": "hat gestohlen"
+    },
+    "steigen": {
+        "Präsens": "steigt",
+        "Präteritum": "stieg",
+        "Perfekt": "ist gestiegen"
+    },
+    "sterben": {
+        "Präsens": "stirbt",
+        "Präteritum": "starb",
+        "Perfekt": "ist gestorben"
+    },
+    "stoßen": {
+        "Präsens": "stößt",
+        "Präteritum": "stieß",
+        "Perfekt": "hat gestoßen"
+    },
+    "streichen": {
+        "Präsens": "streicht",
+        "Präteritum": "strich",
+        "Perfekt": "hat gestrichen"
+    },
+    "streiten": {
+        "Präsens": "streitet",
+        "Präteritum": "stritt",
+        "Perfekt": "hat gestritten"
+    },
+    "tragen": {
+        "Präsens": "trägt",
+        "Präteritum": "trug",
+        "Perfekt": "hat getragen"
+    },
+    "treffen": {
+        "Präsens": "trifft",
+        "Präteritum": "traf",
+        "Perfekt": "hat getroffen"
+    },
+    "treten": {
+        "Präsens": "tritt",
+        "Präteritum": "trat",
+        "Perfekt": "hat/ist getreten"
+    },
     "trinken": {
         "Präsens": "trinkt",
         "Präteritum": "trank",
         "Perfekt": "hat getrunken"
+    },
+    "tun": {
+        "Präsens": "tut",
+        "Präteritum": "tat",
+        "Perfekt": "hat getan"
+    },
+    "übertreiben": {
+        "Präsens": "übertreibt",
+        "Präteritum": "übertrieb",
+        "Perfekt": "hat übertrieben"
+    },
+    "sich unterhalten": {
+        "Präsens": "unterhält sich",
+        "Präteritum": "unterhielt sich",
+        "Perfekt": "hat sich unterhalten"
+    },
+    "unterbrechen": {
+        "Präsens": "unterbricht",
+        "Präteritum": "unterbrach",
+        "Perfekt": "hat unterbrochen"
+    },
+    "unternehmen": {
+        "Präsens": "unternimmt",
+        "Präteritum": "unternahm",
+        "Perfekt": "hat unternommen"
+    },
+    "unterscheiden": {
+        "Präsens": "unterscheidet",
+        "Präteritum": "unterschied",
+        "Perfekt": "hat unterschieden"
+    },
+    "verbieten": {
+        "Präsens": "verbietet",
+        "Präteritum": "verbot",
+        "Perfekt": "hat verboten"
+    },
+    "verbinden": {
+        "Präsens": "verbindet",
+        "Präteritum": "verband",
+        "Perfekt": "hat verbunden"
+    },
+    "verbringen": {
+        "Präsens": "verbringt",
+        "Präteritum": "verbrachte",
+        "Perfekt": "hat verbracht"
+    },
+    "vergehen": {
+        "Präsens": "vergeht",
+        "Präteritum": "verging",
+        "Perfekt": "ist vergangen"
+    },
+    "vergessen": {
+        "Präsens": "vergisst",
+        "Präteritum": "vergaß",
+        "Perfekt": "hat vergessen"
+    },
+    "vergleichen": {
+        "Präsens": "vergleicht",
+        "Präteritum": "verglich",
+        "Perfekt": "hat verglichen"
+    },
+    "sich verhalten": {
+        "Präsens": "verhält sich",
+        "Präteritum": "verhielt sich",
+        "Perfekt": "hat sich verhalten"
+    },
+    "verlassen": {
+        "Präsens": "verlässt",
+        "Präteritum": "verließ",
+        "Perfekt": "hat verlassen"
+    },
+    "verlieren": {
+        "Präsens": "verliert",
+        "Präteritum": "verlor",
+        "Perfekt": "hat verloren"
+    },
+    "vermeiden": {
+        "Präsens": "vermeidet",
+        "Präteritum": "vermied",
+        "Perfekt": "hat vermieden"
+    },
+    "verraten": {
+        "Präsens": "verrät",
+        "Präteritum": "verriet",
+        "Perfekt": "hat verraten"
+    },
+    "verschieben": {
+        "Präsens": "verschiebt",
+        "Präteritum": "verschob",
+        "Perfekt": "hat verschoben"
+    },
+    "verschlingen": {
+        "Präsens": "verschlingt",
+        "Präteritum": "verschlang",
+        "Perfekt": "hat verschlungen"
+    },
+    "verschwinden": {
+        "Präsens": "verschwindet",
+        "Präteritum": "verschwand",
+        "Perfekt": "ist verschwunden"
+    },
+    "versprechen": {
+        "Präsens": "verspricht",
+        "Präteritum": "versprach",
+        "Perfekt": "hat versprochen"
+    },
+    "verstehen": {
+        "Präsens": "versteht",
+        "Präteritum": "verstand",
+        "Perfekt": "hat verstanden"
+    },
+    "vertreiben": {
+        "Präsens": "vertreibt",
+        "Präteritum": "vertrieb",
+        "Perfekt": "hat vertrieben"
+    },
+    "verzeihen": {
+        "Präsens": "verzeiht",
+        "Präteritum": "verzieh",
+        "Perfekt": "hat verziehen"
+    },
+    "vorhaben": {
+        "Präsens": "hat vor",
+        "Präteritum": "hatte vor",
+        "Perfekt": "hat vorgehabt"
+    },
+    "vorkommen": {
+        "Präsens": "kommt vor",
+        "Präteritum": "kam vor",
+        "Perfekt": "ist vorgekommen"
+    },
+    "vorschlagen": {
+        "Präsens": "schlägt vor",
+        "Präteritum": "schlug vor",
+        "Perfekt": "hat vorgeschlagen"
+    },
+    "vortragen": {
+        "Präsens": "trägt vor",
+        "Präteritum": "trug vor",
+        "Perfekt": "hat vorgetragen"
+    },
+    "wachsen": {
+        "Präsens": "wächst",
+        "Präteritum": "wuchs",
+        "Perfekt": "ist gewachsen"
+    },
+    "waschen": {
+        "Präsens": "wäscht",
+        "Präteritum": "wusch",
+        "Perfekt": "hat gewaschen"
+    },
+    "werben": {
+        "Präsens": "wirbt",
+        "Präteritum": "warb",
+        "Perfekt": "hat geworben"
+    },
+    "werden": {
+        "Präsens": "wird",
+        "Präteritum": "wurde",
+        "Perfekt": "ist geworden"
+    },
+    "werfen": {
+        "Präsens": "wirft",
+        "Präteritum": "warf",
+        "Perfekt": "hat geworfen"
+    },
+    "wiegen": {
+        "Präsens": "wiegt",
+        "Präteritum": "wog",
+        "Perfekt": "hat gewogen"
+    },
+    "wissen": {
+        "Präsens": "weiß",
+        "Präteritum": "wusste",
+        "Perfekt": "hat gewusst"
+    },
+    "wollen": {
+        "Präsens": "will",
+        "Präteritum": "wollte",
+        "Perfekt": "hat gewollt"
+    },
+    "ziehen": {
+        "Präsens": "zieht",
+        "Präteritum": "zog",
+        "Perfekt": "hat gezogen"
+    },
+    "zerbrechen": {
+        "Präsens": "zerbricht",
+        "Präteritum": "zerbrach",
+        "Perfekt": "ist zerbrochen"
+    },
+    "zugeben": {
+        "Präsens": "gibt zu",
+        "Präteritum": "gab zu",
+        "Perfekt": "hat zugegeben"
+    },
+    "zwingen": {
+        "Präsens": "zwingt",
+        "Präteritum": "zwang",
+        "Perfekt": "hat gezwungen"
     }
 }
