@@ -254,9 +254,9 @@ class TestVerbsDataFile:
 
         for verb, forms in data.items():
             assert isinstance(forms, dict), f"Verb '{verb}' value is not a dict"
-            assert (
-                set(forms.keys()) == EXPECTED_KEYS
-            ), f"Verb '{verb}' has keys {set(forms.keys())}, expected {EXPECTED_KEYS}"
+            assert set(forms.keys()) == EXPECTED_KEYS, (
+                f"Verb '{verb}' has keys {set(forms.keys())}, expected {EXPECTED_KEYS}"
+            )
 
     def test_all_verb_forms_are_non_empty_strings(self):
         """Test that all verb forms are non-empty strings"""
@@ -265,9 +265,9 @@ class TestVerbsDataFile:
 
         for verb, forms in data.items():
             for key, value in forms.items():
-                assert isinstance(
-                    value, str
-                ), f"Verb '{verb}' form '{key}' is not a string"
+                assert isinstance(value, str), (
+                    f"Verb '{verb}' form '{key}' is not a string"
+                )
                 assert len(value.strip()) > 0, f"Verb '{verb}' form '{key}' is empty"
 
 
@@ -276,9 +276,9 @@ class TestDataFilesConsistency:
 
     def test_translations_file_exists(self):
         """Test that the Russian translations file exists"""
-        assert (
-            TRANSLATIONS_RU_PATH.exists()
-        ), f"Translations file not found: {TRANSLATIONS_RU_PATH}"
+        assert TRANSLATIONS_RU_PATH.exists(), (
+            f"Translations file not found: {TRANSLATIONS_RU_PATH}"
+        )
 
     def test_examples_file_exists(self):
         """Test that the examples file exists"""
@@ -300,19 +300,19 @@ class TestDataFilesConsistency:
         # Check translations has same keys as forms
         missing_in_translations = forms_keys - translations_keys
         extra_in_translations = translations_keys - forms_keys
-        assert (
-            not missing_in_translations
-        ), f"Verbs missing in translations: {missing_in_translations}"
-        assert (
-            not extra_in_translations
-        ), f"Extra verbs in translations: {extra_in_translations}"
+        assert not missing_in_translations, (
+            f"Verbs missing in translations: {missing_in_translations}"
+        )
+        assert not extra_in_translations, (
+            f"Extra verbs in translations: {extra_in_translations}"
+        )
 
         # Check examples has same keys as forms
         missing_in_examples = forms_keys - examples_keys
         extra_in_examples = examples_keys - forms_keys
-        assert (
-            not missing_in_examples
-        ), f"Verbs missing in examples: {missing_in_examples}"
+        assert not missing_in_examples, (
+            f"Verbs missing in examples: {missing_in_examples}"
+        )
         assert not extra_in_examples, f"Extra verbs in examples: {extra_in_examples}"
 
     def test_translations_format(self):
@@ -321,14 +321,14 @@ class TestDataFilesConsistency:
             translations = json.load(f)
 
         for verb, trans_list in translations.items():
-            assert isinstance(
-                trans_list, list
-            ), f"Verb '{verb}' translations is not a list"
+            assert isinstance(trans_list, list), (
+                f"Verb '{verb}' translations is not a list"
+            )
             assert len(trans_list) > 0, f"Verb '{verb}' has no translations"
             for trans in trans_list:
-                assert isinstance(
-                    trans, str
-                ), f"Verb '{verb}' has non-string translation: {trans}"
+                assert isinstance(trans, str), (
+                    f"Verb '{verb}' has non-string translation: {trans}"
+                )
                 assert len(trans.strip()) > 0, f"Verb '{verb}' has empty translation"
 
     def test_examples_format(self):
@@ -337,16 +337,16 @@ class TestDataFilesConsistency:
             examples = json.load(f)
 
         for verb, example_list in examples.items():
-            assert isinstance(
-                example_list, list
-            ), f"Verb '{verb}' examples is not a list"
-            assert (
-                2 <= len(example_list) <= 3
-            ), f"Verb '{verb}' has {len(example_list)} examples, expected 2-3"
+            assert isinstance(example_list, list), (
+                f"Verb '{verb}' examples is not a list"
+            )
+            assert 2 <= len(example_list) <= 3, (
+                f"Verb '{verb}' has {len(example_list)} examples, expected 2-3"
+            )
             for example in example_list:
-                assert isinstance(
-                    example, str
-                ), f"Verb '{verb}' has non-string example: {example}"
+                assert isinstance(example, str), (
+                    f"Verb '{verb}' has non-string example: {example}"
+                )
                 assert len(example.strip()) > 0, f"Verb '{verb}' has empty example"
 
 
