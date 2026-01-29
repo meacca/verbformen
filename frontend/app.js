@@ -112,10 +112,23 @@ function renderQuizForm(verbs) {
     verbs.forEach((verb, index) => {
         const verbCard = document.createElement('div');
         verbCard.className = 'verb-card';
+
+        // Build translations string
+        const translationsText = verb.translations && verb.translations.length > 0
+            ? verb.translations.join(', ')
+            : '';
+
+        // Build example text
+        const exampleText = verb.example || '';
+
         verbCard.innerHTML = `
             <div class="verb-header">
                 <span class="verb-number">${index + 1}.</span>
                 <span class="verb-infinitive">${verb.infinitive}</span>
+            </div>
+            <div class="verb-hints">
+                <p class="verb-translations">${translationsText}</p>
+                <p class="verb-example">${exampleText}</p>
             </div>
             <div class="verb-forms">
                 <div class="form-group">

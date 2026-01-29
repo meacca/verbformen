@@ -17,6 +17,8 @@ class VerbService:
         """
         self.data_path = Path(data_path)
         self._verbs: dict[str, dict[str, str]] | None = None
+        self._translations: dict[str, list[str]] | None = None
+        self._examples: dict[str, list[str]] | None = None
 
     def load_verbs(self) -> dict[str, dict[str, str]]:
         """
@@ -37,6 +39,83 @@ class VerbService:
                 self._verbs = json.load(f)
 
         return self._verbs
+
+    def load_translations(self) -> dict[str, list[str]]:
+        """
+        Load Russian translations from JSON file (cached in memory)
+
+        Returns:
+            Dictionary mapping infinitive verbs to their translations
+
+        Raises:
+            FileNotFoundError: If the translations file doesn't exist
+            json.JSONDecodeError: If the file contains invalid JSON
+        """
+        if self._translations is None:
+            # Translations are in data/translations/verbs_translation_ru.json
+            translations_path = (
+                self.data_path.parent / "translations" / "verbs_translation_ru.json"
+            )
+            if not translations_path.exists():
+                raise FileNotFoundError(
+                    f"Translations file not found: {translations_path}"
+                )
+
+            with open(translations_path, encoding="utf-8") as f:
+                self._translations = json.load(f)
+
+        return self._translations
+
+    def load_examples(self) -> dict[str, list[str]]:
+        """
+        Load example sentences from JSON file (cached in memory)
+
+        Returns:
+            Dictionary mapping infinitive verbs to their example sentences
+
+        Raises:
+            FileNotFoundError: If the examples file doesn't exist
+            json.JSONDecodeError: If the file contains invalid JSON
+        """
+        if self._examples is None:
+            # Examples are in data/verbs_examples.json
+            examples_path = self.data_path.parent / "verbs_examples.json"
+            if not examples_path.exists():
+                raise FileNotFoundError(f"Examples file not found: {examples_path}")
+
+            with open(examples_path, encoding="utf-8") as f:
+                self._examples = json.load(f)
+
+        return self._examples
+
+    def get_verb_hints(self, infinitive: str) -> dict:
+        """
+        Get translations and one random example for a verb
+
+        Args:
+            infinitive: The verb in infinitive form
+
+        Returns:
+            Dictionary containing:
+            - translations: list[str] - Russian translations
+            - example: str - One random example sentence
+
+        Raises:
+            ValueError: If the verb is not found in translations or examples
+        """
+        translations = self.load_translations()
+        examples = self.load_examples()
+
+        if infinitive not in translations:
+            raise ValueError(f"Verb '{infinitive}' not found in translations")
+
+        if infinitive not in examples:
+            raise ValueError(f"Verb '{infinitive}' not found in examples")
+
+        return {
+            "translations": translations[infinitive],
+            "example": random.choice(examples[infinitive]),
+        }
 
     def get_random_verbs(self, count: int = 10) -> list[str]:
         """

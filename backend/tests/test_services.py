@@ -348,3 +348,239 @@ class TestDataFilesConsistency:
                     example, str
                 ), f"Verb '{verb}' has non-string example: {example}"
                 assert len(example.strip()) > 0, f"Verb '{verb}' has empty example"
+
+
+@pytest.fixture
+def verb_service_with_hints(tmp_path):
+    """Create a VerbService instance with test data including translations and examples"""
+    # Create data directory structure
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    translations_dir = data_dir / "translations"
+    translations_dir.mkdir()
+
+    # Create verbs file
+    verbs_data = {
+        "gehen": {"Präsens": "geht", "Präteritum": "ging", "Perfekt": "ist gegangen"},
+        "machen": {
+            "Präsens": "macht",
+            "Präteritum": "machte",
+            "Perfekt": "hat gemacht",
+        },
+        "sein": {"Präsens": "ist", "Präteritum": "war", "Perfekt": "ist gewesen"},
+    }
+    verbs_path = data_dir / "verbs_forms.json"
+    with open(verbs_path, "w", encoding="utf-8") as f:
+        json.dump(verbs_data, f, ensure_ascii=False)
+
+    # Create translations file
+    translations_data = {
+        "gehen": ["идти", "ходить"],
+        "machen": ["делать", "изготавливать"],
+        "sein": ["быть", "являться"],
+    }
+    translations_path = translations_dir / "verbs_translation_ru.json"
+    with open(translations_path, "w", encoding="utf-8") as f:
+        json.dump(translations_data, f, ensure_ascii=False)
+
+    # Create examples file
+    examples_data = {
+        "gehen": [
+            "Er geht zur Schule.",
+            "Sie ging gestern ins Kino.",
+            "Wir sind nach Hause gegangen.",
+        ],
+        "machen": [
+            "Er macht seine Hausaufgaben.",
+            "Sie machte einen Kuchen.",
+            "Wir haben einen Ausflug gemacht.",
+        ],
+        "sein": [
+            "Er ist Lehrer.",
+            "Sie war gestern krank.",
+            "Ich bin dort gewesen.",
+        ],
+    }
+    examples_path = data_dir / "verbs_examples.json"
+    with open(examples_path, "w", encoding="utf-8") as f:
+        json.dump(examples_data, f, ensure_ascii=False)
+
+    return VerbService(str(verbs_path))
+
+
+class TestVerbServiceHints:
+    """Tests for translations and examples loading"""
+
+    def test_load_translations(self, verb_service_with_hints):
+        """Test loading translations from JSON file"""
+        translations = verb_service_with_hints.load_translations()
+
+        assert len(translations) == 3
+        assert "gehen" in translations
+        assert translations["gehen"] == ["идти", "ходить"]
+        assert translations["machen"] == ["делать", "изготавливать"]
+
+    def test_load_translations_caching(self, verb_service_with_hints):
+        """Test that translations are cached after first load"""
+        translations1 = verb_service_with_hints.load_translations()
+        translations2 = verb_service_with_hints.load_translations()
+
+        # Should return the same object (cached)
+        assert translations1 is translations2
+
+    def test_load_translations_file_not_found(self, tmp_path):
+        """Test error handling when translations file doesn't exist"""
+        # Create only the verbs file, not translations
+        data_dir = tmp_path / "data_no_trans"
+        data_dir.mkdir()
+
+        verbs_data = {
+            "gehen": {
+                "Präsens": "geht",
+                "Präteritum": "ging",
+                "Perfekt": "ist gegangen",
+            }
+        }
+        verbs_path = data_dir / "verbs_forms.json"
+        with open(verbs_path, "w", encoding="utf-8") as f:
+            json.dump(verbs_data, f)
+
+        service = VerbService(str(verbs_path))
+
+        with pytest.raises(FileNotFoundError, match="Translations file not found"):
+            service.load_translations()
+
+    def test_load_examples(self, verb_service_with_hints):
+        """Test loading examples from JSON file"""
+        examples = verb_service_with_hints.load_examples()
+
+        assert len(examples) == 3
+        assert "gehen" in examples
+        assert len(examples["gehen"]) == 3
+        assert "Er geht zur Schule." in examples["gehen"]
+
+    def test_load_examples_caching(self, verb_service_with_hints):
+        """Test that examples are cached after first load"""
+        examples1 = verb_service_with_hints.load_examples()
+        examples2 = verb_service_with_hints.load_examples()
+
+        # Should return the same object (cached)
+        assert examples1 is examples2
+
+    def test_load_examples_file_not_found(self, tmp_path):
+        """Test error handling when examples file doesn't exist"""
+        # Create only the verbs file, not examples
+        data_dir = tmp_path / "data_no_examples"
+        data_dir.mkdir()
+
+        verbs_data = {
+            "gehen": {
+                "Präsens": "geht",
+                "Präteritum": "ging",
+                "Perfekt": "ist gegangen",
+            }
+        }
+        verbs_path = data_dir / "verbs_forms.json"
+        with open(verbs_path, "w", encoding="utf-8") as f:
+            json.dump(verbs_data, f)
+
+        service = VerbService(str(verbs_path))
+
+        with pytest.raises(FileNotFoundError, match="Examples file not found"):
+            service.load_examples()
+
+    def test_get_verb_hints(self, verb_service_with_hints):
+        """Test getting hints (translations + random example) for a verb"""
+        hints = verb_service_with_hints.get_verb_hints("gehen")
+
+        assert "translations" in hints
+        assert "example" in hints
+        assert hints["translations"] == ["идти", "ходить"]
+        assert hints["example"] in [
+            "Er geht zur Schule.",
+            "Sie ging gestern ins Kino.",
+            "Wir sind nach Hause gegangen.",
+        ]
+
+    def test_get_verb_hints_example_is_from_valid_set(self, verb_service_with_hints):
+        """Test that example selection is from valid options"""
+        valid_examples = [
+            "Er macht seine Hausaufgaben.",
+            "Sie machte einen Kuchen.",
+            "Wir haben einen Ausflug gemacht.",
+        ]
+
+        # Call multiple times to check randomness
+        for _ in range(10):
+            hints = verb_service_with_hints.get_verb_hints("machen")
+            assert hints["example"] in valid_examples
+
+    def test_get_verb_hints_verb_not_in_translations(self, tmp_path):
+        """Test error when verb doesn't exist in translations"""
+        # Create files with mismatched verbs
+        data_dir = tmp_path / "data_mismatch"
+        data_dir.mkdir()
+        translations_dir = data_dir / "translations"
+        translations_dir.mkdir()
+
+        verbs_data = {
+            "gehen": {
+                "Präsens": "geht",
+                "Präteritum": "ging",
+                "Perfekt": "ist gegangen",
+            }
+        }
+        verbs_path = data_dir / "verbs_forms.json"
+        with open(verbs_path, "w", encoding="utf-8") as f:
+            json.dump(verbs_data, f)
+
+        # Translations missing "gehen"
+        translations_data = {"machen": ["делать"]}
+        translations_path = translations_dir / "verbs_translation_ru.json"
+        with open(translations_path, "w", encoding="utf-8") as f:
+            json.dump(translations_data, f)
+
+        examples_data = {"gehen": ["Er geht zur Schule."]}
+        examples_path = data_dir / "verbs_examples.json"
+        with open(examples_path, "w", encoding="utf-8") as f:
+            json.dump(examples_data, f)
+
+        service = VerbService(str(verbs_path))
+
+        with pytest.raises(ValueError, match="not found in translations"):
+            service.get_verb_hints("gehen")
+
+    def test_get_verb_hints_verb_not_in_examples(self, tmp_path):
+        """Test error when verb doesn't exist in examples"""
+        # Create files with mismatched verbs
+        data_dir = tmp_path / "data_mismatch2"
+        data_dir.mkdir()
+        translations_dir = data_dir / "translations"
+        translations_dir.mkdir()
+
+        verbs_data = {
+            "gehen": {
+                "Präsens": "geht",
+                "Präteritum": "ging",
+                "Perfekt": "ist gegangen",
+            }
+        }
+        verbs_path = data_dir / "verbs_forms.json"
+        with open(verbs_path, "w", encoding="utf-8") as f:
+            json.dump(verbs_data, f)
+
+        translations_data = {"gehen": ["идти"]}
+        translations_path = translations_dir / "verbs_translation_ru.json"
+        with open(translations_path, "w", encoding="utf-8") as f:
+            json.dump(translations_data, f)
+
+        # Examples missing "gehen"
+        examples_data = {"machen": ["Er macht etwas."]}
+        examples_path = data_dir / "verbs_examples.json"
+        with open(examples_path, "w", encoding="utf-8") as f:
+            json.dump(examples_data, f)
+
+        service = VerbService(str(verbs_path))
+
+        with pytest.raises(ValueError, match="not found in examples"):
+            service.get_verb_hints("gehen")

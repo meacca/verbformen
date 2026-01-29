@@ -8,6 +8,10 @@ class VerbInfo(BaseModel):
 
     infinitive: str = Field(..., description="The verb in infinitive form")
     index: int = Field(..., description="Position in the quiz (0-9)")
+    translations: list[str] = Field(
+        default_factory=list, description="Russian translations of the verb"
+    )
+    example: str = Field(default="", description="Example sentence using the verb")
 
 
 class SessionStart(BaseModel):
