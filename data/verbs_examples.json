@@ -1,0 +1,827 @@
+{
+    "aufstehen": [
+        "Ich stehe jeden Morgen um 7 Uhr auf.",
+        "Er stand gestern sehr früh auf.",
+        "Sie ist heute spät aufgestanden."
+    ],
+    "ausziehen": [
+        "Er zieht nächsten Monat aus seiner Wohnung aus.",
+        "Sie zog vor einem Jahr nach Berlin aus.",
+        "Wir sind letzten Sommer ausgezogen."
+    ],
+    "backen": [
+        "Meine Mutter bäckt jeden Sonntag einen Kuchen.",
+        "Er backte gestern Brot für die Familie.",
+        "Sie hat zum Geburtstag einen Schokoladenkuchen gebacken."
+    ],
+    "sich befinden": [
+        "Das Museum befindet sich im Stadtzentrum.",
+        "Der Schlüssel befand sich in meiner Tasche.",
+        "Das Hotel hat sich direkt am Strand befunden."
+    ],
+    "beginnen": [
+        "Der Unterricht beginnt um 9 Uhr.",
+        "Das Konzert begann mit einer Überraschung.",
+        "Die Arbeit hat pünktlich begonnen."
+    ],
+    "begreifen": [
+        "Er begreift die Aufgabe nicht.",
+        "Sie begriff erst später, was passiert war.",
+        "Ich habe das Problem endlich begriffen."
+    ],
+    "behalten": [
+        "Sie behält immer alle wichtigen Informationen.",
+        "Er behielt das Geheimnis für sich.",
+        "Ich habe den Namen leider nicht behalten."
+    ],
+    "beißen": [
+        "Der Hund beißt nie Fremde.",
+        "Die Katze biss mich in die Hand.",
+        "Die Mücke hat mich gebissen."
+    ],
+    "bekommen": [
+        "Sie bekommt jeden Tag viele E-Mails.",
+        "Er bekam zu Weihnachten ein neues Fahrrad.",
+        "Ich habe eine Antwort von der Firma bekommen."
+    ],
+    "beweisen": [
+        "Der Anwalt beweist die Unschuld seines Klienten.",
+        "Sie bewies großen Mut in der Situation.",
+        "Er hat seine Fähigkeiten bewiesen."
+    ],
+    "sich bewerben": [
+        "Sie bewirbt sich um eine neue Stelle.",
+        "Er bewarb sich bei drei verschiedenen Firmen.",
+        "Ich habe mich um das Stipendium beworben."
+    ],
+    "sich beziehen auf": [
+        "Der Kommentar bezieht sich auf den letzten Absatz.",
+        "Seine Kritik bezog sich auf meine Arbeit.",
+        "Die Frage hat sich auf das Thema bezogen."
+    ],
+    "bieten": [
+        "Das Hotel bietet einen tollen Ausblick.",
+        "Er bot mir seine Hilfe an.",
+        "Sie hat mir eine interessante Möglichkeit geboten."
+    ],
+    "bitten": [
+        "Ich bitte dich um einen Gefallen.",
+        "Sie bat ihn um Verzeihung.",
+        "Er hat mich um Rat gebeten."
+    ],
+    "bleiben": [
+        "Er bleibt heute zu Hause.",
+        "Sie blieb den ganzen Abend bei uns.",
+        "Ich bin zwei Wochen in Italien geblieben."
+    ],
+    "braten": [
+        "Sie brät das Steak in der Pfanne.",
+        "Er briet die Kartoffeln mit Zwiebeln.",
+        "Ich habe Fisch zum Abendessen gebraten."
+    ],
+    "brechen": [
+        "Das Eis bricht unter dem Gewicht.",
+        "Er brach sich beim Sport das Bein.",
+        "Sie hat ihr Versprechen gebrochen."
+    ],
+    "brennen": [
+        "Das Feuer brennt die ganze Nacht.",
+        "Die Kerze brannte bis zum Morgen.",
+        "Das Holz hat gut gebrannt."
+    ],
+    "bringen": [
+        "Der Kellner bringt das Essen.",
+        "Sie brachte Blumen zur Party mit.",
+        "Er hat mir ein Geschenk gebracht."
+    ],
+    "denken": [
+        "Ich denke oft an meine Familie.",
+        "Er dachte lange über das Problem nach.",
+        "Sie hat an alles gedacht."
+    ],
+    "dürfen": [
+        "Hier darf man nicht rauchen.",
+        "Er durfte als Kind spät aufbleiben.",
+        "Sie hat nicht mitkommen dürfen."
+    ],
+    "einfallen": [
+        "Mir fällt gerade nichts ein.",
+        "Ihm fiel plötzlich die Lösung ein.",
+        "Der Name ist mir nicht eingefallen."
+    ],
+    "einladen": [
+        "Sie lädt alle Freunde zur Party ein.",
+        "Er lud mich zum Abendessen ein.",
+        "Wir haben die Nachbarn eingeladen."
+    ],
+    "einschlafen": [
+        "Das Kind schläft schnell ein.",
+        "Ich schlief vor dem Fernseher ein.",
+        "Sie ist erst spät eingeschlafen."
+    ],
+    "einziehen": [
+        "Die neue Familie zieht morgen ein.",
+        "Er zog in eine größere Wohnung ein.",
+        "Wir sind vor einem Monat eingezogen."
+    ],
+    "empfangen": [
+        "Der Direktor empfängt die Gäste persönlich.",
+        "Sie empfing den Preis mit großer Freude.",
+        "Wir haben ein herzliches Willkommen empfangen."
+    ],
+    "empfehlen": [
+        "Der Arzt empfiehlt mehr Bewegung.",
+        "Sie empfahl mir dieses Restaurant.",
+        "Er hat das Buch allen Kollegen empfohlen."
+    ],
+    "empfinden": [
+        "Sie empfindet große Freude bei der Arbeit.",
+        "Er empfand die Kritik als unfair.",
+        "Ich habe es als Beleidigung empfunden."
+    ],
+    "entlassen": [
+        "Die Firma entlässt 50 Mitarbeiter.",
+        "Der Arzt entließ den Patienten aus dem Krankenhaus.",
+        "Sie hat ihren Assistenten entlassen."
+    ],
+    "entscheiden": [
+        "Das Gericht entscheidet über den Fall.",
+        "Er entschied sich für das blaue Hemd.",
+        "Wir haben uns für Italien entschieden."
+    ],
+    "sich entschließen": [
+        "Sie entschließt sich zum Umzug.",
+        "Er entschloss sich, den Job zu wechseln.",
+        "Ich habe mich entschlossen, Deutsch zu lernen."
+    ],
+    "entstehen": [
+        "Durch Regen entsteht oft Nebel.",
+        "Das Gemälde entstand im 19. Jahrhundert.",
+        "Ein neues Projekt ist entstanden."
+    ],
+    "erfahren": [
+        "Sie erfährt die Neuigkeiten aus der Zeitung.",
+        "Er erfuhr erst gestern von dem Unfall.",
+        "Ich habe davon nichts erfahren."
+    ],
+    "erfinden": [
+        "Er erfindet immer neue Ausreden.",
+        "Sie erfand eine praktische Lösung.",
+        "Wer hat das Telefon erfunden?"
+    ],
+    "erhalten": [
+        "Sie erhält jeden Monat einen Newsletter.",
+        "Er erhielt eine wichtige Nachricht.",
+        "Ich habe eine Einladung erhalten."
+    ],
+    "erkennen": [
+        "Sie erkennt ihn sofort an seiner Stimme.",
+        "Er erkannte seinen alten Freund nicht.",
+        "Ich habe meinen Fehler erkannt."
+    ],
+    "erscheinen": [
+        "Das neue Buch erscheint nächste Woche.",
+        "Er erschien pünktlich zum Meeting.",
+        "Die Zeitung ist heute nicht erschienen."
+    ],
+    "erschrecken": [
+        "Das Kind erschrickt vor lauten Geräuschen.",
+        "Sie erschrak, als sie die Nachricht hörte.",
+        "Ich bin über das Ergebnis erschrocken."
+    ],
+    "erziehen": [
+        "Sie erzieht ihre Kinder sehr streng.",
+        "Er erzog seinen Sohn zur Selbstständigkeit.",
+        "Die Großmutter hat ihn erzogen."
+    ],
+    "essen": [
+        "Sie isst jeden Tag Obst zum Frühstück.",
+        "Er aß gestern im Restaurant.",
+        "Wir haben Pizza gegessen."
+    ],
+    "fahren": [
+        "Sie fährt jeden Tag mit dem Bus zur Arbeit.",
+        "Er fuhr letztes Jahr nach Spanien.",
+        "Wir sind mit dem Zug gefahren."
+    ],
+    "fallen": [
+        "Die Blätter fallen im Herbst.",
+        "Er fiel auf dem glatten Boden.",
+        "Die Preise sind gefallen."
+    ],
+    "fangen": [
+        "Die Katze fängt eine Maus.",
+        "Der Torwart fing den Ball.",
+        "Sie hat einen großen Fisch gefangen."
+    ],
+    "finden": [
+        "Sie findet immer eine Lösung.",
+        "Er fand seinen Schlüssel unter dem Sofa.",
+        "Ich habe das Buch interessant gefunden."
+    ],
+    "fliegen": [
+        "Der Vogel fliegt über das Haus.",
+        "Sie flog letzten Sommer nach Japan.",
+        "Wir sind nach London geflogen."
+    ],
+    "fliehen": [
+        "Die Familie flieht vor dem Krieg.",
+        "Er floh aus dem brennenden Gebäude.",
+        "Sie sind in ein anderes Land geflohen."
+    ],
+    "fließen": [
+        "Der Fluss fließt durch die Stadt.",
+        "Das Wasser floss schnell bergab.",
+        "Viel Zeit ist geflossen."
+    ],
+    "fressen": [
+        "Der Hund frisst sein Futter.",
+        "Die Katze fraß den ganzen Tag nichts.",
+        "Das Pferd hat viel Heu gefressen."
+    ],
+    "frieren": [
+        "Sie friert schnell bei kaltem Wetter.",
+        "Er fror die ganze Nacht.",
+        "Ich habe im Winter sehr gefroren."
+    ],
+    "geben": [
+        "Sie gibt dem Kind ein Spielzeug.",
+        "Er gab mir seinen Rat.",
+        "Die Lehrerin hat uns Hausaufgaben gegeben."
+    ],
+    "gefallen": [
+        "Das Kleid gefällt mir sehr.",
+        "Der Film gefiel allen Zuschauern.",
+        "Die Reise hat uns gut gefallen."
+    ],
+    "gehen": [
+        "Sie geht jeden Morgen joggen.",
+        "Er ging gestern ins Kino.",
+        "Wir sind durch den Park gegangen."
+    ],
+    "gelingen": [
+        "Das Experiment gelingt ihm jedes Mal.",
+        "Es gelang ihr, das Problem zu lösen.",
+        "Der Kuchen ist perfekt gelungen."
+    ],
+    "gelten": [
+        "Diese Regel gilt für alle.",
+        "Das Angebot galt nur bis gestern.",
+        "Das Gesetz hat lange gegolten."
+    ],
+    "genießen": [
+        "Sie genießt ihren Urlaub am Meer.",
+        "Er genoss das gute Essen.",
+        "Wir haben den Sonnenuntergang genossen."
+    ],
+    "geraten": [
+        "Er gerät oft in schwierige Situationen.",
+        "Sie geriet in einen Stau.",
+        "Das Projekt ist in Verzug geraten."
+    ],
+    "geschehen": [
+        "Was geschieht hier gerade?",
+        "Der Unfall geschah am Morgen.",
+        "Es ist ein Wunder geschehen."
+    ],
+    "gewinnen": [
+        "Sie gewinnt oft im Schach.",
+        "Er gewann den ersten Preis.",
+        "Die Mannschaft hat das Spiel gewonnen."
+    ],
+    "gießen": [
+        "Sie gießt jeden Tag die Blumen.",
+        "Er goss Wasser in das Glas.",
+        "Ich habe die Pflanzen gegossen."
+    ],
+    "greifen": [
+        "Das Kind greift nach dem Spielzeug.",
+        "Er griff schnell nach dem Seil.",
+        "Sie hat nach meiner Hand gegriffen."
+    ],
+    "haben": [
+        "Sie hat zwei Kinder.",
+        "Er hatte gestern keine Zeit.",
+        "Ich habe viel Arbeit gehabt."
+    ],
+    "halten": [
+        "Der Bus hält an der nächsten Ecke.",
+        "Sie hielt das Baby im Arm.",
+        "Er hat sein Versprechen gehalten."
+    ],
+    "hängen": [
+        "Das Bild hängt an der Wand.",
+        "Der Mantel hing am Haken.",
+        "Die Lampe hat über dem Tisch gehangen."
+    ],
+    "heben": [
+        "Er hebt die schwere Kiste.",
+        "Sie hob die Hand zum Gruß.",
+        "Wir haben den Schrank zusammen gehoben."
+    ],
+    "heißen": [
+        "Sie heißt Maria.",
+        "Der Film hieß 'Das Leben ist schön'.",
+        "Das hat geheißen, wir müssen warten."
+    ],
+    "helfen": [
+        "Er hilft seiner Mutter im Haushalt.",
+        "Sie half mir bei den Hausaufgaben.",
+        "Der Arzt hat vielen Patienten geholfen."
+    ],
+    "hinweisen auf": [
+        "Der Lehrer weist auf einen Fehler hin.",
+        "Sie wies auf die Gefahr hin.",
+        "Er hat auf die Regeln hingewiesen."
+    ],
+    "kennen": [
+        "Sie kennt die Stadt sehr gut.",
+        "Er kannte die Antwort nicht.",
+        "Ich habe ihn schon lange gekannt."
+    ],
+    "klingen": [
+        "Die Musik klingt schön.",
+        "Seine Stimme klang müde.",
+        "Das hat nach einer guten Idee geklungen."
+    ],
+    "können": [
+        "Sie kann sehr gut kochen.",
+        "Er konnte gestern nicht kommen.",
+        "Ich habe nicht schlafen können."
+    ],
+    "kommen": [
+        "Der Zug kommt in fünf Minuten.",
+        "Sie kam gestern zu spät.",
+        "Er ist aus Deutschland gekommen."
+    ],
+    "laden": [
+        "Er lädt die Koffer ins Auto.",
+        "Sie lud die Dateien herunter.",
+        "Wir haben das Gepäck geladen."
+    ],
+    "lassen": [
+        "Sie lässt ihre Tasche zu Hause.",
+        "Er ließ das Auto reparieren.",
+        "Ich habe das Fenster offen gelassen."
+    ],
+    "laufen": [
+        "Das Kind läuft durch den Garten.",
+        "Er lief gestern einen Marathon.",
+        "Sie ist schnell nach Hause gelaufen."
+    ],
+    "leiden": [
+        "Sie leidet unter Kopfschmerzen.",
+        "Er litt an einer schweren Krankheit.",
+        "Die Familie hat sehr gelitten."
+    ],
+    "leihen": [
+        "Sie leiht mir ihr Fahrrad.",
+        "Er lieh sich Geld von seinem Freund.",
+        "Ich habe das Buch aus der Bibliothek geliehen."
+    ],
+    "lesen": [
+        "Sie liest jeden Abend ein Buch.",
+        "Er las die Nachricht auf seinem Handy.",
+        "Ich habe den Artikel gelesen."
+    ],
+    "liegen": [
+        "Das Buch liegt auf dem Tisch.",
+        "Er lag den ganzen Tag im Bett.",
+        "Die Stadt hat am Meer gelegen."
+    ],
+    "lügen": [
+        "Er lügt nie.",
+        "Sie log über ihre Abwesenheit.",
+        "Der Zeuge hat gelogen."
+    ],
+    "messen": [
+        "Der Arzt misst den Blutdruck.",
+        "Sie maß die Temperatur des Wassers.",
+        "Ich habe die Länge des Zimmers gemessen."
+    ],
+    "mögen": [
+        "Sie mag Schokolade sehr gern.",
+        "Er mochte das Essen nicht.",
+        "Ich habe ihn immer gemocht."
+    ],
+    "müssen": [
+        "Sie muss heute arbeiten.",
+        "Er musste früh aufstehen.",
+        "Ich habe lange warten müssen."
+    ],
+    "nachweisen": [
+        "Der Test weist die Krankheit nach.",
+        "Sie wies ihre Qualifikationen nach.",
+        "Er hat seine Identität nachgewiesen."
+    ],
+    "nehmen": [
+        "Sie nimmt den Bus zur Arbeit.",
+        "Er nahm ein Stück Kuchen.",
+        "Ich habe mir Zeit genommen."
+    ],
+    "nennen": [
+        "Sie nennt ihn bei seinem Spitznamen.",
+        "Er nannte seinen Namen.",
+        "Man hat ihn einen Experten genannt."
+    ],
+    "raten": [
+        "Der Arzt rät zu mehr Bewegung.",
+        "Sie riet mir, das Angebot anzunehmen.",
+        "Er hat mir gut geraten."
+    ],
+    "reiben": [
+        "Sie reibt sich die müden Augen.",
+        "Er rieb den Käse für die Pizza.",
+        "Ich habe die Möbel mit Wachs gerieben."
+    ],
+    "reiten": [
+        "Sie reitet jeden Sonntag.",
+        "Er ritt durch den Wald.",
+        "Wir sind am Strand geritten."
+    ],
+    "rennen": [
+        "Das Kind rennt zum Spielplatz.",
+        "Er rannte, um den Zug zu erreichen.",
+        "Sie ist um ihr Leben gerannt."
+    ],
+    "riechen": [
+        "Die Blume riecht wunderbar.",
+        "Er roch den frischen Kaffee.",
+        "Ich habe Gas gerochen."
+    ],
+    "rufen": [
+        "Sie ruft laut nach Hilfe.",
+        "Er rief seinen Freund an.",
+        "Die Mutter hat die Kinder gerufen."
+    ],
+    "schaffen": [
+        "Der Künstler schafft ein Meisterwerk.",
+        "Sie schuf eine neue Methode.",
+        "Er hat Großes geschaffen."
+    ],
+    "scheinen": [
+        "Die Sonne scheint heute.",
+        "Es schien ein schöner Tag zu werden.",
+        "Der Mond hat die ganze Nacht geschienen."
+    ],
+    "schieben": [
+        "Er schiebt den Einkaufswagen.",
+        "Sie schob den Schrank an die Wand.",
+        "Ich habe das Auto geschoben."
+    ],
+    "schießen": [
+        "Der Jäger schießt auf das Ziel.",
+        "Er schoss den Ball ins Tor.",
+        "Sie hat ein Foto geschossen."
+    ],
+    "schlafen": [
+        "Das Baby schläft friedlich.",
+        "Er schlief die ganze Nacht durch.",
+        "Ich habe gut geschlafen."
+    ],
+    "schlagen": [
+        "Er schlägt den Nagel in die Wand.",
+        "Das Herz schlug schneller.",
+        "Sie hat ihn im Tennis geschlagen."
+    ],
+    "schließen": [
+        "Sie schließt die Tür hinter sich.",
+        "Er schloss das Geschäft um 18 Uhr.",
+        "Ich habe das Fenster geschlossen."
+    ],
+    "schmelzen": [
+        "Der Schnee schmilzt im Frühling.",
+        "Das Eis schmolz in der Sonne.",
+        "Die Schokolade ist geschmolzen."
+    ],
+    "schneiden": [
+        "Sie schneidet das Brot in Scheiben.",
+        "Er schnitt sich in den Finger.",
+        "Ich habe mir die Haare schneiden lassen."
+    ],
+    "schreiben": [
+        "Sie schreibt einen Brief an ihre Freundin.",
+        "Er schrieb einen interessanten Artikel.",
+        "Ich habe eine E-Mail geschrieben."
+    ],
+    "schreien": [
+        "Das Kind schreit vor Freude.",
+        "Sie schrie um Hilfe.",
+        "Er hat laut geschrien."
+    ],
+    "schweigen": [
+        "Er schweigt zu den Vorwürfen.",
+        "Sie schwieg während des ganzen Meetings.",
+        "Die Zeugen haben geschwiegen."
+    ],
+    "schwimmen": [
+        "Sie schwimmt jeden Morgen im Pool.",
+        "Er schwamm bis ans andere Ufer.",
+        "Wir sind im Meer geschwommen."
+    ],
+    "sehen": [
+        "Sie sieht einen Film im Fernsehen.",
+        "Er sah seinen Freund in der Stadt.",
+        "Ich habe das Problem gesehen."
+    ],
+    "sein": [
+        "Er ist Lehrer von Beruf.",
+        "Sie war gestern krank.",
+        "Es ist schon spät gewesen."
+    ],
+    "senden": [
+        "Sie sendet eine Nachricht per E-Mail.",
+        "Er sandte einen Brief an seine Eltern.",
+        "Ich habe das Paket gesendet."
+    ],
+    "singen": [
+        "Sie singt in einem Chor.",
+        "Er sang ein Lied für seine Freundin.",
+        "Die Kinder haben zusammen gesungen."
+    ],
+    "sinken": [
+        "Das Schiff sinkt nach der Kollision.",
+        "Die Temperatur sank auf null Grad.",
+        "Die Preise sind gesunken."
+    ],
+    "sitzen": [
+        "Sie sitzt am Fenster.",
+        "Er saß stundenlang am Computer.",
+        "Wir haben im Garten gesessen."
+    ],
+    "sollen": [
+        "Sie soll pünktlich kommen.",
+        "Er sollte mehr lernen.",
+        "Ich habe das nicht machen sollen."
+    ],
+    "sprechen": [
+        "Sie spricht fließend Deutsch.",
+        "Er sprach mit seinem Chef.",
+        "Wir haben über das Problem gesprochen."
+    ],
+    "springen": [
+        "Das Kind springt über die Pfütze.",
+        "Er sprang ins kalte Wasser.",
+        "Die Katze ist auf den Tisch gesprungen."
+    ],
+    "stechen": [
+        "Die Biene sticht nur, wenn sie sich bedroht fühlt.",
+        "Die Mücke stach mich am Arm.",
+        "Er hat sich an der Rose gestochen."
+    ],
+    "stehen": [
+        "Sie steht an der Bushaltestelle.",
+        "Er stand eine Stunde im Regen.",
+        "Das Auto hat vor dem Haus gestanden."
+    ],
+    "stehlen": [
+        "Der Dieb stiehlt Handtaschen.",
+        "Jemand stahl mein Fahrrad.",
+        "Sie hat ihm das Herz gestohlen."
+    ],
+    "steigen": [
+        "Die Preise steigen jeden Monat.",
+        "Er stieg auf den Berg.",
+        "Die Temperatur ist gestiegen."
+    ],
+    "sterben": [
+        "Die Pflanze stirbt ohne Wasser.",
+        "Er starb im hohen Alter.",
+        "Viele Menschen sind an der Krankheit gestorben."
+    ],
+    "stoßen": [
+        "Er stößt das Fenster auf.",
+        "Sie stieß mit dem Kopf gegen die Tür.",
+        "Ich habe mich am Tisch gestoßen."
+    ],
+    "streichen": [
+        "Er streicht die Wand weiß.",
+        "Sie strich das Wort aus dem Text.",
+        "Wir haben das Zimmer gestrichen."
+    ],
+    "streiten": [
+        "Die Kinder streiten um das Spielzeug.",
+        "Sie stritt mit ihrem Bruder.",
+        "Wir haben uns lange nicht gestritten."
+    ],
+    "tragen": [
+        "Sie trägt ein rotes Kleid.",
+        "Er trug die schweren Taschen.",
+        "Ich habe die Verantwortung getragen."
+    ],
+    "treffen": [
+        "Sie trifft ihre Freundin im Café.",
+        "Er traf eine schwierige Entscheidung.",
+        "Wir haben uns zufällig getroffen."
+    ],
+    "treten": [
+        "Er tritt gegen den Ball.",
+        "Sie trat ins Zimmer ein.",
+        "Ich bin ihm auf den Fuß getreten."
+    ],
+    "trinken": [
+        "Sie trinkt jeden Morgen Kaffee.",
+        "Er trank ein Glas Wasser.",
+        "Wir haben Tee getrunken."
+    ],
+    "tun": [
+        "Sie tut ihr Bestes.",
+        "Er tat, als ob er nichts wüsste.",
+        "Ich habe alles getan, was ich konnte."
+    ],
+    "übertreiben": [
+        "Er übertreibt immer bei seinen Geschichten.",
+        "Sie übertrieb es mit dem Training.",
+        "Du hast wieder maßlos übertrieben."
+    ],
+    "sich unterhalten": [
+        "Sie unterhält sich gern mit Kollegen.",
+        "Er unterhielt sich mit dem Chef.",
+        "Wir haben uns gut unterhalten."
+    ],
+    "unterbrechen": [
+        "Bitte unterbricht mich nicht!",
+        "Sie unterbrach das Meeting für eine Pause.",
+        "Er hat mich mitten im Satz unterbrochen."
+    ],
+    "unternehmen": [
+        "Sie unternimmt gern Ausflüge.",
+        "Er unternahm eine Reise nach Asien.",
+        "Wir haben viel zusammen unternommen."
+    ],
+    "unterscheiden": [
+        "Sie unterscheidet die Zwillinge leicht.",
+        "Er unterschied zwischen Fakten und Meinungen.",
+        "Ich habe den Unterschied nicht unterschieden."
+    ],
+    "verbieten": [
+        "Der Arzt verbietet ihm Alkohol.",
+        "Die Eltern verboten das Rauchen.",
+        "Das Gesetz hat es verboten."
+    ],
+    "verbinden": [
+        "Der Arzt verbindet die Wunde.",
+        "Sie verband die beiden Ideen.",
+        "Das Kabel hat die Geräte verbunden."
+    ],
+    "verbringen": [
+        "Sie verbringt den Urlaub am Meer.",
+        "Er verbrachte viel Zeit mit seiner Familie.",
+        "Wir haben einen schönen Abend verbracht."
+    ],
+    "vergehen": [
+        "Die Zeit vergeht schnell.",
+        "Der Schmerz verging nach einer Stunde.",
+        "Viele Jahre sind vergangen."
+    ],
+    "vergessen": [
+        "Sie vergisst oft ihre Schlüssel.",
+        "Er vergaß meinen Geburtstag.",
+        "Ich habe das Passwort vergessen."
+    ],
+    "vergleichen": [
+        "Sie vergleicht die Preise online.",
+        "Er verglich die beiden Angebote.",
+        "Ich habe die Ergebnisse verglichen."
+    ],
+    "sich verhalten": [
+        "Sie verhält sich immer professionell.",
+        "Er verhielt sich sehr ruhig.",
+        "Das Kind hat sich gut verhalten."
+    ],
+    "verlassen": [
+        "Sie verlässt das Haus um 8 Uhr.",
+        "Er verließ die Party früh.",
+        "Ich habe mich auf ihn verlassen."
+    ],
+    "verlieren": [
+        "Sie verliert ständig ihre Sachen.",
+        "Er verlor sein Portemonnaie.",
+        "Die Mannschaft hat das Spiel verloren."
+    ],
+    "vermeiden": [
+        "Sie vermeidet Konflikte.",
+        "Er vermied den Blickkontakt.",
+        "Ich habe den Fehler vermieden."
+    ],
+    "verraten": [
+        "Er verrät nie ein Geheimnis.",
+        "Sie verriet ihm die Wahrheit.",
+        "Jemand hat unseren Plan verraten."
+    ],
+    "verschieben": [
+        "Sie verschiebt den Termin auf nächste Woche.",
+        "Er verschob die Möbel im Zimmer.",
+        "Die Sitzung ist auf morgen verschoben worden."
+    ],
+    "verschlingen": [
+        "Der Hund verschlingt sein Futter.",
+        "Er verschlang drei Bücher in einer Woche.",
+        "Sie hat den Roman verschlungen."
+    ],
+    "verschwinden": [
+        "Der Zug verschwindet hinter dem Hügel.",
+        "Er verschwand plötzlich aus dem Raum.",
+        "Mein Geld ist verschwunden."
+    ],
+    "versprechen": [
+        "Sie verspricht, pünktlich zu sein.",
+        "Er versprach mir seine Hilfe.",
+        "Ich habe es versprochen."
+    ],
+    "verstehen": [
+        "Sie versteht die Aufgabe gut.",
+        "Er verstand den Witz nicht.",
+        "Ich habe das Problem verstanden."
+    ],
+    "vertreiben": [
+        "Die Musik vertreibt die schlechte Laune.",
+        "Sie vertrieb die Zeit mit Lesen.",
+        "Der Wind hat die Wolken vertrieben."
+    ],
+    "verzeihen": [
+        "Sie verzeiht ihm seinen Fehler.",
+        "Er verzieh ihr die Lüge.",
+        "Ich habe ihm längst verziehen."
+    ],
+    "vorhaben": [
+        "Was hast du heute vor?",
+        "Sie hatte vor, ins Kino zu gehen.",
+        "Wir haben nichts Besonderes vorgehabt."
+    ],
+    "vorkommen": [
+        "Solche Fehler kommen manchmal vor.",
+        "Es kam mir bekannt vor.",
+        "Das ist noch nie vorgekommen."
+    ],
+    "vorschlagen": [
+        "Er schlägt eine Lösung vor.",
+        "Sie schlug ein Treffen am Freitag vor.",
+        "Ich habe eine Alternative vorgeschlagen."
+    ],
+    "vortragen": [
+        "Sie trägt das Gedicht vor.",
+        "Er trug seine Ideen vor.",
+        "Der Student hat seinen Bericht vorgetragen."
+    ],
+    "wachsen": [
+        "Die Pflanze wächst schnell.",
+        "Er wuchs in einer kleinen Stadt auf.",
+        "Das Unternehmen ist stark gewachsen."
+    ],
+    "waschen": [
+        "Sie wäscht die Wäsche am Wochenende.",
+        "Er wusch sich die Hände.",
+        "Ich habe das Auto gewaschen."
+    ],
+    "werben": [
+        "Die Firma wirbt für ihre Produkte.",
+        "Er warb um ihre Gunst.",
+        "Sie haben stark für das Event geworben."
+    ],
+    "werden": [
+        "Sie wird nächstes Jahr Ärztin.",
+        "Er wurde sehr müde.",
+        "Es ist spät geworden."
+    ],
+    "werfen": [
+        "Er wirft den Ball zu seinem Freund.",
+        "Sie warf einen Blick auf die Uhr.",
+        "Ich habe den Brief in den Mülleimer geworfen."
+    ],
+    "wiegen": [
+        "Das Baby wiegt sieben Kilo.",
+        "Sie wog die Zutaten genau ab.",
+        "Das Paket hat zwei Kilo gewogen."
+    ],
+    "wissen": [
+        "Sie weiß die Antwort.",
+        "Er wusste nichts davon.",
+        "Ich habe das nicht gewusst."
+    ],
+    "wollen": [
+        "Sie will einen neuen Job.",
+        "Er wollte nach Hause gehen.",
+        "Ich habe das nicht gewollt."
+    ],
+    "ziehen": [
+        "Sie zieht den schweren Koffer.",
+        "Er zog die Gardinen zu.",
+        "Wir haben in eine neue Stadt gezogen."
+    ],
+    "zerbrechen": [
+        "Das Glas zerbricht leicht.",
+        "Sie zerbrach versehentlich die Vase.",
+        "Die Tasse ist zerbrochen."
+    ],
+    "zugeben": [
+        "Er gibt seinen Fehler zu.",
+        "Sie gab zu, dass sie Unrecht hatte.",
+        "Ich habe es zugegeben."
+    ],
+    "zwingen": [
+        "Niemand zwingt dich dazu.",
+        "Sie zwang sich zur Ruhe.",
+        "Er hat mich zu nichts gezwungen."
+    ]
+}

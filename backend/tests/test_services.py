@@ -8,6 +8,13 @@ import pytest
 from backend.services import VerbService
 
 DATA_PATH = Path(__file__).parent.parent.parent / "data" / "verbs_forms.json"
+TRANSLATIONS_RU_PATH = (
+    Path(__file__).parent.parent.parent
+    / "data"
+    / "translations"
+    / "verbs_translation_ru.json"
+)
+EXAMPLES_PATH = Path(__file__).parent.parent.parent / "data" / "verbs_examples.json"
 EXPECTED_KEYS = {"Präsens", "Präteritum", "Perfekt"}
 
 
@@ -262,3 +269,82 @@ class TestVerbsDataFile:
                     value, str
                 ), f"Verb '{verb}' form '{key}' is not a string"
                 assert len(value.strip()) > 0, f"Verb '{verb}' form '{key}' is empty"
+
+
+class TestDataFilesConsistency:
+    """Tests to verify all data files have consistent verb keys"""
+
+    def test_translations_file_exists(self):
+        """Test that the Russian translations file exists"""
+        assert (
+            TRANSLATIONS_RU_PATH.exists()
+        ), f"Translations file not found: {TRANSLATIONS_RU_PATH}"
+
+    def test_examples_file_exists(self):
+        """Test that the examples file exists"""
+        assert EXAMPLES_PATH.exists(), f"Examples file not found: {EXAMPLES_PATH}"
+
+    def test_all_files_have_same_keys(self):
+        """Test that all three data files have identical verb keys"""
+        with open(DATA_PATH, encoding="utf-8") as f:
+            verbs_forms = json.load(f)
+        with open(TRANSLATIONS_RU_PATH, encoding="utf-8") as f:
+            translations_ru = json.load(f)
+        with open(EXAMPLES_PATH, encoding="utf-8") as f:
+            examples = json.load(f)
+
+        forms_keys = set(verbs_forms.keys())
+        translations_keys = set(translations_ru.keys())
+        examples_keys = set(examples.keys())
+
+        # Check translations has same keys as forms
+        missing_in_translations = forms_keys - translations_keys
+        extra_in_translations = translations_keys - forms_keys
+        assert (
+            not missing_in_translations
+        ), f"Verbs missing in translations: {missing_in_translations}"
+        assert (
+            not extra_in_translations
+        ), f"Extra verbs in translations: {extra_in_translations}"
+
+        # Check examples has same keys as forms
+        missing_in_examples = forms_keys - examples_keys
+        extra_in_examples = examples_keys - forms_keys
+        assert (
+            not missing_in_examples
+        ), f"Verbs missing in examples: {missing_in_examples}"
+        assert not extra_in_examples, f"Extra verbs in examples: {extra_in_examples}"
+
+    def test_translations_format(self):
+        """Test that each translation value is a non-empty list of strings"""
+        with open(TRANSLATIONS_RU_PATH, encoding="utf-8") as f:
+            translations = json.load(f)
+
+        for verb, trans_list in translations.items():
+            assert isinstance(
+                trans_list, list
+            ), f"Verb '{verb}' translations is not a list"
+            assert len(trans_list) > 0, f"Verb '{verb}' has no translations"
+            for trans in trans_list:
+                assert isinstance(
+                    trans, str
+                ), f"Verb '{verb}' has non-string translation: {trans}"
+                assert len(trans.strip()) > 0, f"Verb '{verb}' has empty translation"
+
+    def test_examples_format(self):
+        """Test that each example value is a list of 2-3 non-empty strings"""
+        with open(EXAMPLES_PATH, encoding="utf-8") as f:
+            examples = json.load(f)
+
+        for verb, example_list in examples.items():
+            assert isinstance(
+                example_list, list
+            ), f"Verb '{verb}' examples is not a list"
+            assert (
+                2 <= len(example_list) <= 3
+            ), f"Verb '{verb}' has {len(example_list)} examples, expected 2-3"
+            for example in example_list:
+                assert isinstance(
+                    example, str
+                ), f"Verb '{verb}' has non-string example: {example}"
+                assert len(example.strip()) > 0, f"Verb '{verb}' has empty example"
